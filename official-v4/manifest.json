@@ -1,0 +1,506 @@
+{
+  "competition": "ARC-AGI-3",
+  "status": "LOCAL_RELEASE_CANDIDATE_V2_NOT_PUBLISHED",
+  "files": {
+    "CONTRIBUTIONS.md": {
+      "bytes": 4147,
+      "sha256": "f90759f70641af5314568740a79905da8bc6807aa54cda044480d7437fad2f24"
+    },
+    "LICENSE": {
+      "bytes": 903,
+      "sha256": "a17c71e07d0ec620be595094e933802dbd830314b5fb678529e50f72d9720f40"
+    },
+    "LICENSES/MIT-0.txt": {
+      "bytes": 904,
+      "sha256": "da406a3de75a3b38ea09126f6151cf6452ad7e5b9953887d60fc111bed58eb09"
+    },
+    "LICENSES/MIT-upstream-TAAF.txt": {
+      "bytes": 1610,
+      "sha256": "0e1d31f83ff1620c2622b07c2fa1da7c8e52aec0a6301a4163b5c6e5f560f86d"
+    },
+    "LICENSES/Qwen-Community-1.0.txt": {
+      "bytes": 3235,
+      "sha256": "a0dc422560841fd68e06d974907f8b4c709bca44a67daad2b528437bdf676c08"
+    },
+    "LICENSES/flashinfer/LICENSE": {
+      "bytes": 12384,
+      "sha256": "d76ef6f903c7545978e93f91d8a4c7c7574c3f9e80fc5bfba7412f60ad730184"
+    },
+    "LICENSES/flashinfer/NOTICE": {
+      "bytes": 435,
+      "sha256": "90bb9e1dec06f26a34f8f8ce98c53ded10b4fd8e1a9e91e2360e6be354e81db3"
+    },
+    "LICENSES/flashinfer/licenses/LICENSE.cutlass.txt": {
+      "bytes": 1547,
+      "sha256": "6fc6ad419e4d26571a14c7c4d26b65345865c20dd8686ddcf5e8673f54d3d233"
+    },
+    "LICENSES/flashinfer/licenses/LICENSE.flashattention3.txt": {
+      "bytes": 1558,
+      "sha256": "8c9ccb96c065e706135b6cbad279b721da6156e51f3a5f27c6b3329af9416d73"
+    },
+    "LICENSES/flashinfer/licenses/LICENSE.fmt.txt": {
+      "bytes": 1408,
+      "sha256": "825c9324e70f8c839c8ba910543dd4a7daee243b86ef960594c11381a19980b8"
+    },
+    "LICENSES/flashinfer/licenses/LICENSE.spdlog.txt": {
+      "bytes": 1288,
+      "sha256": "c703fb8266409f5660523b307bbefd2bc8d7b92c848d0b973e6dd8640a5389f7"
+    },
+    "LICENSES/franzen-repository-Apache-2.0.txt": {
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "LICENSES/pennyroyal/UPSTREAM_LICENSE.txt": {
+      "bytes": 11346,
+      "sha256": "1495e1e757ef4d0925a2350563cf5754bb23c51701a8ec4fb3c5cdcbedae6747"
+    },
+    "LICENSES/pennyroyal/mratsim_LICENSE.txt": {
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "LICENSE_SCOPE.json": {
+      "bytes": 52404,
+      "sha256": "86f295dd44eb166f083ca47f27cab7d61e1d3507ba1a161b438870b0ade95bd4"
+    },
+    "METHOD.md": {
+      "bytes": 6328,
+      "sha256": "0efa4e4dcf6bb228da4e96eab87ccfa9a1ca85c54d6624680d6961c8142956a8"
+    },
+    "PUBLICATION_CHECKLIST.md": {
+      "bytes": 2839,
+      "sha256": "ecb82fed26871c6b3bc8ba1cf3daf3915036cdd87fa93a20686a8e967b951f35"
+    },
+    "README.md": {
+      "bytes": 3585,
+      "sha256": "428ae213f77c4d49e6e14fd10d9f0e26fb8c430fcede07ce448c44b35eccc6c6"
+    },
+    "THIRD_PARTY_NOTICES.md": {
+      "bytes": 3373,
+      "sha256": "be24805972cdcee5197ec6922364c55317cee2f47a92f683009477d7e5a40481"
+    },
+    "effective_source/README.dataset.md": {
+      "bytes": 211,
+      "sha256": "21abef2e39a887c8ffa024ce87f5cd5614a6dc5e87c9b5edf75db2c9c4295abe"
+    },
+    "effective_source/git_status.txt": {
+      "bytes": 356,
+      "sha256": "ae9637bab0ed488c0ce3d9db93810c7d2b6759db665791429e7a3befe7143f3a"
+    },
+    "effective_source/preamble.txt": {
+      "bytes": 976,
+      "sha256": "3aefbd3aa7d3a1c5c610b42d13476de509e06834b029f5c88eb6c0980081d6ea"
+    },
+    "effective_source/setup_commands.json": {
+      "bytes": 10359,
+      "sha256": "650c2cfe94b972c38883861a2c648e4e32f35d7eefb6af43afaa5b844d0a6bf6"
+    },
+    "effective_source/src/ARC3-Inference/Makefile": {
+      "bytes": 26654,
+      "sha256": "03194bbee6d93be4d469090a620da9169e6a34c7940505074db750cdda021eba"
+    },
+    "effective_source/src/ARC3-Inference/README.md": {
+      "bytes": 12709,
+      "sha256": "3547705bad40217d199f8ddab8b0904286a98ae24a3b9e0829a8afec8ed612b8"
+    },
+    "effective_source/src/ARC3-Inference/configs/eval.json": {
+      "bytes": 39,
+      "sha256": "ecd210094502c47eabb26d5dcf2995d3b2c069f66fe772016d9b164832f8c5e9"
+    },
+    "effective_source/src/ARC3-Inference/configs/inference.json": {
+      "bytes": 1901,
+      "sha256": "6902224082ad6dc6c824fdef68010c9beea5b8d7097a422cbdc7c1a2172aa44e"
+    },
+    "effective_source/src/ARC3-Inference/configs/inference.openrouter.json": {
+      "bytes": 1818,
+      "sha256": "d60d45e4a5a18fcb17338b2b1c316de83b36390dd5afb93031884491a6ca1c7e"
+    },
+    "effective_source/src/ARC3-Inference/configs/significance.json": {
+      "bytes": 316,
+      "sha256": "41bae6010678729ba11d356f7c8e01fd8361f392ddcbf7a260fc6280f8ae35fc"
+    },
+    "effective_source/src/ARC3-Inference/inference/__init__.py": {
+      "bytes": 90,
+      "sha256": "d9244cc613220677e2c47b8cd5a218786b918a542bcba63682a3d0778006cf8a"
+    },
+    "effective_source/src/ARC3-Inference/inference/agent/__init__.py": {
+      "bytes": 216,
+      "sha256": "0c0a18c681d1f6c035848048af21405b36021f93bdd465e44896494454886813"
+    },
+    "effective_source/src/ARC3-Inference/inference/agent/action_names.py": {
+      "bytes": 1988,
+      "sha256": "baeb20a43e5873cd1e109637e65d1f2fd62c72f03603a8e06c858130c020284d"
+    },
+    "effective_source/src/ARC3-Inference/inference/agent/noop_repeat_guard.py": {
+      "bytes": 8327,
+      "sha256": "7f35f1d60ed3dfac65b09e66b2e45e60a71aa08fbb0716b974ed953fc98189c8"
+    },
+    "effective_source/src/ARC3-Inference/inference/agent/priority_pace_reference.json": {
+      "bytes": 700,
+      "sha256": "313c779a28988aac3ee66b01d0dea7cc3b105fdd45e4f7b8c41de6c23762fa9c"
+    },
+    "effective_source/src/ARC3-Inference/inference/agent/priority_scheduler.py": {
+      "bytes": 5792,
+      "sha256": "f9f8a4bd21a1066073bb97d50639be2c2410d481a97e5b1cab9d6214ebe70bbe"
+    },
+    "effective_source/src/ARC3-Inference/inference/agent/prompts.py": {
+      "bytes": 28185,
+      "sha256": "eae27f2b9b07b0b87dc5a6e88a27110f72d53ad0a18bebb9b432b03e1f5bad92"
+    },
+    "effective_source/src/ARC3-Inference/inference/agent/python_tool_sandbox.py": {
+      "bytes": 38731,
+      "sha256": "3900b7255842df04be9ad08f91b521279a2e63f8226ac4bc77fb6de7a4e36943"
+    },
+    "effective_source/src/ARC3-Inference/inference/agent/runtime_state.py": {
+      "bytes": 3886,
+      "sha256": "371e211ac2e364829f44acd1bd9de85284c365445c8bb4669445ac4a7545ac73"
+    },
+    "effective_source/src/ARC3-Inference/inference/agent/tool_agent.py": {
+      "bytes": 346832,
+      "sha256": "d376294e112d04ee2b213e30aebf02472598be10adf53e323b97a7d28b0d28a9"
+    },
+    "effective_source/src/ARC3-Inference/inference/agent/vision_context.py": {
+      "bytes": 12590,
+      "sha256": "b30cadfacdf23524b19f6993f7a3c8bb68d13d01d5b68c0504b8fccd35195bf8"
+    },
+    "effective_source/src/ARC3-Inference/inference/framework/__init__.py": {
+      "bytes": 56,
+      "sha256": "97c7fcfe9e5f8b109b90416413b052099ab628e8c1c6a8c888612b3074a1b6bf"
+    },
+    "effective_source/src/ARC3-Inference/inference/framework/kaggle.py": {
+      "bytes": 17688,
+      "sha256": "d600a993a8642a808fb83080be40bfc3fd9ababa6b84e15abba713e8e2d7ebbe"
+    },
+    "effective_source/src/ARC3-Inference/inference/framework/run.py": {
+      "bytes": 54176,
+      "sha256": "69756c29ee5bba3d7be8b519b1d3eac25bdfd347a092bbea7aff42344f9f0780"
+    },
+    "effective_source/src/ARC3-Inference/inference/framework/solver.py": {
+      "bytes": 83001,
+      "sha256": "d5a0b46b24a019802c372bd1205febb68fe784bb15358d27e37a4739d1cb0308"
+    },
+    "effective_source/src/ARC3-Inference/inference/tools/__init__.py": {
+      "bytes": 53,
+      "sha256": "36ac2d2804aa381c402ee585e9c45f3d58d9a8b3075510cdd772df2eec2ef889"
+    },
+    "effective_source/src/ARC3-Inference/inference/tools/chat.py": {
+      "bytes": 7135,
+      "sha256": "f9ac5aa9459ef11161020b275e0af6595b255fc35a1f8d4966a505d955e4cd31"
+    },
+    "effective_source/src/ARC3-Inference/inference/tools/config_value.py": {
+      "bytes": 1184,
+      "sha256": "a10980e5e708f68cfdef0d065a0907137d6f26749ab6f2ba5f7135421847a5c6"
+    },
+    "effective_source/src/ARC3-Inference/inference/tools/eval.py": {
+      "bytes": 28385,
+      "sha256": "28df9899d6bcb5d02c068934d5828e217deddaebb29a12a706be5fe2a0f3c447"
+    },
+    "effective_source/src/ARC3-Inference/inference/tools/eval_plot.py": {
+      "bytes": 9848,
+      "sha256": "2e8a426161a230eb748bcc1db30ed2605c16351f6f5a51e77cae8d1cc19124f3"
+    },
+    "effective_source/src/ARC3-Inference/inference/tools/significance.py": {
+      "bytes": 33491,
+      "sha256": "d3d19d4b9f95c4ca0dda099f04857f5f6507c6a3a3479dd5cea20c6b8e2eb6af"
+    },
+    "effective_source/src/ARC3-Inference/inference/tools/traces.py": {
+      "bytes": 27525,
+      "sha256": "d8a4941558fb7117951474b1a72ad744eccfc330cef58187981556a2e00768b4"
+    },
+    "effective_source/src/ARC3-Inference/inference/tools/vllm_runtime_lora_guard.py": {
+      "bytes": 3889,
+      "sha256": "a5c3e4a06b8706d9c0f05f28d7395ae93e90c6774fbe2e15194e69536f6b6e2e"
+    },
+    "effective_source/src/ARC3-Inference/inference/utils/__init__.py": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "effective_source/src/ARC3-Inference/inference/utils/animation.py": {
+      "bytes": 13473,
+      "sha256": "b835584ead6d449c3bfb72f1c1df03186907ae882e4325cfc97dd584684c3824"
+    },
+    "effective_source/src/ARC3-Inference/inference/utils/frame_diff.py": {
+      "bytes": 13626,
+      "sha256": "843be0ce9225ae19de91dd34409bd7b7cf69ebad1ff73e69759c506c161bdeee"
+    },
+    "effective_source/src/ARC3-Inference/inference/utils/grid_utils.py": {
+      "bytes": 662,
+      "sha256": "2c96de5a6e0da2ae0390ab191b39a154784089b00fce8e2da98ebb3960715b67"
+    },
+    "effective_source/src/ARC3-Inference/inference/utils/openai_compat.py": {
+      "bytes": 7254,
+      "sha256": "1d8a85edfabe1d7577348db2aed6dff6a858095e5c99a819cf0f45b123e2b1ce"
+    },
+    "effective_source/src/ARC3-Inference/inference/utils/rearc_baselines.py": {
+      "bytes": 1187,
+      "sha256": "c05d98e40704ae02b487862607964a18719ff96cc5c1d66bfd678a2c0bf4e4fb"
+    },
+    "effective_source/src/ARC3-Inference/inference/utils/rearc_version.py": {
+      "bytes": 1829,
+      "sha256": "2548c1b2ba4b3bdd65de8b6255ece8d3317a06f9d4bbc25ed58aa46ed1da8826"
+    },
+    "effective_source/src/ARC3-Inference/inference/utils/retained_functions.py": {
+      "bytes": 14928,
+      "sha256": "9450d8c73fa5f84f40f7bd7bc3868ab63fadde2c68e4546de7b041b387be0b37"
+    },
+    "effective_source/src/ARC3-Inference/inference/utils/run_artifacts.py": {
+      "bytes": 4769,
+      "sha256": "c1a0c1a0bd994ae712dffe182b7c92af9fdd2dc68cccc8b472a356dbc3ad3b3b"
+    },
+    "effective_source/src/ARC3-Inference/inference/utils/segmentation.py": {
+      "bytes": 10590,
+      "sha256": "1bd1346e4b87a8eca5f1b67df88237cb7527f96132de84772b2094de95353aed"
+    },
+    "effective_source/src/ARC3-Inference/inference/utils/viewer_artifacts.py": {
+      "bytes": 3855,
+      "sha256": "21f948f7398bdc16b8eaf9771edf0a3c6505349794c9c44154870b075f07a52f"
+    },
+    "effective_source/src/ARC3-Inference/pyproject.toml": {
+      "bytes": 2019,
+      "sha256": "5538b502bdedf7bf206f645731498ca5858571b148d05a89e4514e2934f54d0a"
+    },
+    "effective_source/src/ARC3-Inference/scripts/ensure_server_api_key.sh": {
+      "bytes": 562,
+      "sha256": "77b7ddfbb851b728a6aab5654c770f0e0669327d7209216436ef694516f6ff0b"
+    },
+    "effective_source/src/ARC3-Inference/scripts/server_curl.sh": {
+      "bytes": 476,
+      "sha256": "89c1433fe8357543fccaeb5b84b4504f26299d1f77affbfdf21b2c8a5b4f3907"
+    },
+    "effective_source/src/ARC3-Inference/uv.lock": {
+      "bytes": 362326,
+      "sha256": "ce317cea860fef6b066e6c795a0b67fc4d32a9612d77746f17fec1da2b0fd9f2"
+    },
+    "effective_source/src/ARC3-Inference/viewer/__init__.py": {
+      "bytes": 32,
+      "sha256": "4cbb695abe781a6161423cba58afadb3128aa0b38b8db3b5f25f5bad8b513f10"
+    },
+    "effective_source/src/ARC3-Inference/viewer/data.py": {
+      "bytes": 73347,
+      "sha256": "fba85b9466760662c622e1952662014b6d6e891bca1733110d985c38e77f39f6"
+    },
+    "effective_source/src/ARC3-Inference/viewer/index.html": {
+      "bytes": 54595,
+      "sha256": "1ed5561d8d63574d4e1b4196fcccf0291deda1d4954125fb74c0529a3237cb1d"
+    },
+    "effective_source/src/ARC3-Inference/viewer/server.py": {
+      "bytes": 8933,
+      "sha256": "6e4a3d4d3f7a28e5a4ff0866d6e11fb5d40190ec71a388418024dc07a77f3069"
+    },
+    "effective_source/src/tufa-arc-agi-framework/Makefile": {
+      "bytes": 3759,
+      "sha256": "f52dc1fba0db556626e10e56f86c4ff229e94ada6e2c35b6724e7be97fae0c00"
+    },
+    "effective_source/src/tufa-arc-agi-framework/README.md": {
+      "bytes": 1741,
+      "sha256": "d35cec21c37539efa15aef2cbff62e09d318d79df3d6950d66329378881fe9ca"
+    },
+    "effective_source/src/tufa-arc-agi-framework/pyproject.toml": {
+      "bytes": 2383,
+      "sha256": "ec6fa0c8c192e0b384fdace109f87ac7afbdb18b08caa10d0c603a5d685973db"
+    },
+    "effective_source/src/tufa-arc-agi-framework/scripts/refresh_examples.py": {
+      "bytes": 3596,
+      "sha256": "941c7a84f9bc186edf125b583aa2d0773f67d9919b500ea18b4b88b401886909"
+    },
+    "effective_source/src/tufa-arc-agi-framework/src/taaf/__init__.py": {
+      "bytes": 1146,
+      "sha256": "f7f02949ee64cdaf6d1b0ae83f2096ace20acdc40fd3cacb4efd2f312101cedc"
+    },
+    "effective_source/src/tufa-arc-agi-framework/src/taaf/benchmark.py": {
+      "bytes": 21726,
+      "sha256": "caf80adce394d307199717f0623d67e147b4c697c32209dfa0c7bf8a36708f10"
+    },
+    "effective_source/src/tufa-arc-agi-framework/src/taaf/competition_arcade.py": {
+      "bytes": 9568,
+      "sha256": "1d5adf9290ed8700fa15a4d0494944320403bb45906b263de195adf74a43abfa"
+    },
+    "effective_source/src/tufa-arc-agi-framework/src/taaf/deploy.py": {
+      "bytes": 22835,
+      "sha256": "d17296cad0178ab1ce34990152157d32f6e267fcd890093284b23ad1b5d94d7d"
+    },
+    "effective_source/src/tufa-arc-agi-framework/src/taaf/deploy_inline.py": {
+      "bytes": 6070,
+      "sha256": "e21e43e0457b4a5d140b3be3953c98afbf358a33d0b713cfba5b0276f4631a31"
+    },
+    "effective_source/src/tufa-arc-agi-framework/src/taaf/deploy_kaggle.py": {
+      "bytes": 36121,
+      "sha256": "e3a8517d021818fdced11dd35865304de79e69f9081b8a4619a5b807f98a03de"
+    },
+    "effective_source/src/tufa-arc-agi-framework/src/taaf/deploy_slurm.py": {
+      "bytes": 23285,
+      "sha256": "30b326ee4292fae799f9e439c513a5e199092790f364bed53d0d9259b5b9bfb4"
+    },
+    "effective_source/src/tufa-arc-agi-framework/src/taaf/diagnostics.py": {
+      "bytes": 128557,
+      "sha256": "b78e534f2a0f54eb92cae430106773f60f968eda5c8ac17791b511732642b6eb"
+    },
+    "effective_source/src/tufa-arc-agi-framework/src/taaf/game.py": {
+      "bytes": 30002,
+      "sha256": "8609e0646e96616decc936daf4bff102afd480beb69ef1e9e778cd2c1c7df225"
+    },
+    "effective_source/src/tufa-arc-agi-framework/src/taaf/game_api.py": {
+      "bytes": 14742,
+      "sha256": "51639e22cc0d35db49137f0168b2de557b1848482a4c2cf65ade2a1202511221"
+    },
+    "effective_source/src/tufa-arc-agi-framework/src/taaf/game_examples.py": {
+      "bytes": 3673,
+      "sha256": "9d349f8dfd5a9842a5e71d084a9e0b38aeaa4de29a4d5977da5bb8ddabd935f5"
+    },
+    "effective_source/src/tufa-arc-agi-framework/src/taaf/kaggle/taaf_kaggle_run.ipynb": {
+      "bytes": 18698,
+      "sha256": "717db2d0ef76ddbffb8fa646e5b618a5b9cdaa122bfbb693353669b3f49725d7"
+    },
+    "effective_source/src/tufa-arc-agi-framework/src/taaf/kaggle/taaf_kaggle_run_share.ipynb": {
+      "bytes": 26879,
+      "sha256": "a843f24f935c1828f82d37547ec955e8c95face8119622daef9e47c0a7ee7213"
+    },
+    "effective_source/src/tufa-arc-agi-framework/src/taaf/kaggle_random.py": {
+      "bytes": 10435,
+      "sha256": "26739fbac70efdf527f5d81e0f878ffeb4ed734540f0de872daefee07042d5c1"
+    },
+    "effective_source/src/tufa-arc-agi-framework/src/taaf/solver.py": {
+      "bytes": 3337,
+      "sha256": "8c126b6e762768ef5ee51e8a6b7bac2153d7f24a262f6d16a9e472817232d64f"
+    },
+    "effective_source/src/tufa-arc-agi-framework/src/taaf/solver_examples.py": {
+      "bytes": 12105,
+      "sha256": "1b6b47956c0e5ec9bdfda7f35d9b1f3e7a4834041ca1fc3c16a2586ac9d6b9d4"
+    },
+    "effective_source/src/tufa-arc-agi-framework/src/taaf/standard_benchmarks.py": {
+      "bytes": 5063,
+      "sha256": "a21b7d02369491fbed5872a28defb79b14afe9a2603ebb5fd6925ec43924087a"
+    },
+    "effective_source/src/tufa-arc-agi-framework/src/taaf/support.py": {
+      "bytes": 974,
+      "sha256": "4c41b13970867b745124ef43ffeec41481eb61ab25a73e225fca3d03b155bc7f"
+    },
+    "effective_source/src/tufa-arc-agi-framework/uv.lock": {
+      "bytes": 185724,
+      "sha256": "912c88e380a859bcd5801d1bf5c87c202519594c9fca031b2c3950129f5f796f"
+    },
+    "effective_source/taaf-kaggle-bundle.json": {
+      "bytes": 161,
+      "sha256": "52f844965b2b80de6e6ef759dfc9ffa3258f42407e0ed1788ec28ff250a7a8cb"
+    },
+    "effective_source/teardown_commands.json": {
+      "bytes": 1021,
+      "sha256": "25d8cb3f3217baaaf5d671f5f6bc1a1e7e52dc14af2c8676fb1e565d9f36c73c"
+    },
+    "notebook/official_v4.ipynb": {
+      "bytes": 668134,
+      "sha256": "190964763c3d72132afab9c8074387eb84573928ffbce93a0801f3b18b36b341"
+    },
+    "notebook/original_kernel_metadata.json": {
+      "bytes": 896,
+      "sha256": "25481ae6919c923da58570f9b869f8c28d5e951adeca19f4281f6c7e4d51870c"
+    },
+    "notebook_support/arc3_deadline.py": {
+      "bytes": 17924,
+      "sha256": "fcb8882edb18b1ff68679d1dc07d7e7919a5a6018d46ceaa3ba22cdef6178262"
+    },
+    "notebook_support/arc3_ready.py": {
+      "bytes": 9576,
+      "sha256": "f0474244e4df0bbabda9dffcc2e313461a5fd0566b3d238ded0461feb1777a81"
+    },
+    "provenance/effective_file_layers.json": {
+      "bytes": 33711,
+      "sha256": "4d2b28cc255703e49e293b066804b264698246b286f52828291fef913a132329"
+    },
+    "provenance/inherited_patch.json": {
+      "bytes": 817,
+      "sha256": "15b3909c21bcc5569c2230973ff17169479d69efd736f4e227997037139b45fb"
+    },
+    "provenance/inherited_patch_layer_correspondence.json": {
+      "bytes": 50448,
+      "sha256": "d0ef75293c1105b160a852c879e4956076ecc326a3e7799905f49c361f83020f"
+    },
+    "provenance/models/RadixArk_pinned_README.md": {
+      "bytes": 5927,
+      "sha256": "2b62aaf5b5d876732a2f4efb5f023ca31185ba324110fc9be27c8b088ee827a2"
+    },
+    "provenance/models/drafter_compact_sources.json": {
+      "bytes": 563,
+      "sha256": "6978a6dfa0a2a1602203904ae2a67c259e813bd0563a1c16de069f4cedc3849b"
+    },
+    "provenance/models/target_README.md": {
+      "bytes": 2418,
+      "sha256": "00798492330afbb7285fd9c0deee4fc7ac01bbc197eb49d1d5c868ceafe54293"
+    },
+    "provenance/native_cell_identity.json": {
+      "bytes": 5585,
+      "sha256": "f531046f9d2610d695a84c9254b093b3780bc98a9a2ae9f5af38b5881dfe34ee"
+    },
+    "provenance/publisher_declaration.json": {
+      "bytes": 526,
+      "sha256": "d621020087ea87c765e311a96f95d168b6a8c9adcd52fe9d2fc75314e6a5965c"
+    },
+    "provenance/publisher_notice_scan.json": {
+      "bytes": 246,
+      "sha256": "51cee41b8b5ecabddfe4a02dfc59cdb9d7765306a49ae9425ba8f42e1dc1a486"
+    },
+    "provenance/run_py_inherited_added_blocks.json": {
+      "bytes": 1661,
+      "sha256": "8a5a699f6da10c62385816ebf1849c6e2dfcdfbeab61b2bb6e20c586452ae8b2"
+    },
+    "provenance/source_layer_map.json": {
+      "bytes": 70546,
+      "sha256": "b312cafe1e7186db03e467ead48897de7d2e0b0329ce6c139cacbf2d36877a32"
+    },
+    "provenance/submitter_hunk_map.json": {
+      "bytes": 32579,
+      "sha256": "a672fe4615ce2b1ef357b879d719ff1743e27ddafcc93d656039e79d6fdb7792"
+    },
+    "provenance/upstream_notebook_license_identity.json": {
+      "bytes": 1265,
+      "sha256": "632ed9a84b8ca2548aa73158a2f8d7b39796a3f1a3e3fe083d71c86e6d2d91e4"
+    },
+    "recipe/_arc3_legacy_telemetry.py": {
+      "bytes": 5233,
+      "sha256": "6e1d83edda3b467773040cb5cbbae0f89ca7012a205d05512c14c3f06bb2bffe"
+    },
+    "recipe/_arc3_minimal_telemetry.py": {
+      "bytes": 5163,
+      "sha256": "4e8312cdf49a82988478aecfa113535d92fabb3e04ceac29dc59310a15acf859"
+    },
+    "recipe/_arc3_overlay_namespace.py": {
+      "bytes": 9678,
+      "sha256": "2e3dabb10ff837914e5df5facb8e7b7c87524dbdf622d1f9d8a091e3a19d170e"
+    },
+    "recipe/_arc3_propagation.py": {
+      "bytes": 2746,
+      "sha256": "eb3bb65e8b72886077fe7839e48ea73cc59f5f83cefbd56996403408688d63e3"
+    },
+    "recipe/harness-changes.patch": {
+      "bytes": 498780,
+      "sha256": "80aef535ee80970622127f3ee1917e1b127db22ebe07ece40fc8558a63b4484d"
+    },
+    "recipe/later_source_changes.diff": {
+      "bytes": 13902,
+      "sha256": "fde5b5399d31d91c9753fcc25d8b6005768d86a65f118a98034fe460926cace9"
+    },
+    "recipe/notebook_adaptation_delta.diff": {
+      "bytes": 1210823,
+      "sha256": "36b96abbad599bd7cfda2d505cdbe3f328d2949b84d9051c51d666def9e3b57a"
+    },
+    "recipe/submitter_source_delta.patch": {
+      "bytes": 13872,
+      "sha256": "20d133a050b09680a3d1054efb4bcff239c6d381211078a566b266250158b2a1"
+    },
+    "runtime_inputs.json": {
+      "bytes": 73298,
+      "sha256": "dfe7e0d44370122bf07294bc11c70bdf1d3aac5e65312778afc48dc4fb339088"
+    },
+    "source_contract.json": {
+      "bytes": 26408,
+      "sha256": "eee1c54da5493640e8e17e2752181b7cf68e641831f31bb07f2120f8fd7f45db"
+    },
+    "verify_contribution_map.py": {
+      "bytes": 5093,
+      "sha256": "55b2668d1a27ab50c8f47d0124b1955a36b208054e988218dbd4d2ddfb122886"
+    },
+    "verify_public_source.py": {
+      "bytes": 7407,
+      "sha256": "4a29e993b0b38e03b276b7d44bc996523e96fbcf6146de427810ce5501dd39a4"
+    }
+  }
+}

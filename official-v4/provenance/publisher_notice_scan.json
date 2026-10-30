@@ -1,0 +1,11 @@
+{
+  "competition": "ARC-AGI-3",
+  "files_scanned": 71,
+  "patterns": [
+    "copyright",
+    "SPDX",
+    "permission is hereby"
+  ],
+  "hits": [],
+  "scope": "Bounded text search, not universal rights clearance; all71nonpickle members decoded."
+}

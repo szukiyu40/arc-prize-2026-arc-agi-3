@@ -1,0 +1,18 @@
+{
+  "dataset": "jeroencottaar/taaf-kaggle-source-share",
+  "dataset_id": 10710965,
+  "version": 4,
+  "metadata_sha256": "7f31e37952eaa962b7ec8865750e69cfb9d15347fb44d941230a84b32211dea1",
+  "licenses": [
+    {
+      "name": "MIT"
+    }
+  ],
+  "archive": {
+    "bytes": 449765,
+    "sha256": "e9d0b7221d724637bc5c19cc8d229eb58769e3822c45fc041869bc2ee4c2a94c"
+  },
+  "all73_byte_equal": true,
+  "copyright_notice_present_in_archive": false,
+  "scope": "License declared by publisher. No copyright holder or year is inferred."
+}

@@ -1,0 +1,15 @@
+ARC-AGI-3 source release index
+
+Copyright 2026 Yu Suzuki, solely for rights held in original submitter expression.
+
+MIT-0 applies to the original top-level documentation and verification wrapper,
+and to original submitter contributions within each package's explicit scope.
+The full MIT-0 text is in selected-control-v3/LICENSES/MIT-0.txt and
+official-v4/LICENSES/MIT-0.txt.
+
+This repository also contains third-party code, notebook passages, source
+context, license text and provenance. It does not relicense those materials.
+Read selected-control-v3/LICENSE, selected-control-v3/LICENSE_SCOPE.json,
+official-v4/LICENSE and official-v4/LICENSE_SCOPE.json for their separate scopes.
+Original upstream notices remain included. No rights in third-party models,
+weights, datasets or binaries are granted here.

@@ -1,0 +1,13 @@
+ARC3 Control v3 selected-source candidate — license scope index
+
+Copyright 2026 Yu Suzuki, solely for rights held in original submitter contributions.
+
+LICENSES/MIT-0.txt applies only to those original contributions. The source,
+notebook, patches and quoted context include third-party material which retains
+its applicable terms. LICENSE_SCOPE.json and CONTRIBUTIONS.md describe the
+mechanical scope. Neither this file nor the change map grants rights owned by
+upstream authors or relicenses models, facts or inherited expressions.
+
+TAAF's declared MIT terms, Franzen's Apache 2.0 terms and retained notices remain
+separate. No model weights, dependency binaries or container layers are included.
+Source licensing does not establish competition or prize eligibility.

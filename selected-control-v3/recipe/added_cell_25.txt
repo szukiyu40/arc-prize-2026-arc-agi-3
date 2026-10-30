@@ -1,0 +1,5 @@
+if ARC3_WATCHDOG is not None:
+    ARC3_WATCHDOG.cancel()
+print("Runtime mode:", ARC3_MANIFEST["runtime_mode"])
+print("Status:", ARC3_MANIFEST["status"])
+print("Official leaderboard score: not known to this notebook.")

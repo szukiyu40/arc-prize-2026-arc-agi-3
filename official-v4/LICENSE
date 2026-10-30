@@ -1,0 +1,16 @@
+ARC-AGI-3 V4 — license scope index
+
+Copyright 2026 Yu Suzuki, solely for rights held in original submitter contributions.
+
+The MIT No Attribution (MIT-0) license in LICENSES/MIT-0.txt applies to those
+contributions only. LICENSE_SCOPE.json lists the explicit file/contribution
+scopes, and CONTRIBUTIONS.md explains the source layers and mixed-file limits.
+
+This is not a blanket license over the notebook, source tree, inherited patches,
+quoted code or models. The TAAF publisher's declared MIT terms, Franzen
+repository Apache-2.0 terms and other retained upstream notices remain separate.
+The upstream copyright holders' rights are not granted or changed by this file.
+
+No model weights or dependency binaries are included. Their acquisition and
+terms are documented in METHOD.md, runtime_inputs.json and THIRD_PARTY_NOTICES.md.
+Source licensing does not establish competition or prize eligibility.

@@ -1,0 +1,807 @@
+{
+  "competition": "ARC-AGI-3",
+  "files": {
+    "CONTRIBUTIONS.md": {
+      "references": [
+        "LICENSES/MIT-0.txt"
+      ],
+      "scope": "Only original submitter expression/compilation rights held. Facts, quoted material and source bytes are not claimed as owned or relicensed."
+    },
+    "LICENSE": {
+      "references": [
+        "LICENSES/MIT-0.txt"
+      ],
+      "scope": "Only original submitter expression/compilation rights held. Facts, quoted material and source bytes are not claimed as owned or relicensed."
+    },
+    "LICENSES/MIT-0.txt": {
+      "scope": "Third-party material retained under its source terms; not relicensed MIT-0.",
+      "references": [
+        "THIRD_PARTY_NOTICES.md"
+      ]
+    },
+    "LICENSES/MIT-upstream-TAAF.txt": {
+      "scope": "Third-party material retained under its source terms; not relicensed MIT-0.",
+      "references": [
+        "THIRD_PARTY_NOTICES.md"
+      ]
+    },
+    "LICENSES/Qwen-Community-1.0.txt": {
+      "scope": "Third-party material retained under its source terms; not relicensed MIT-0.",
+      "references": [
+        "THIRD_PARTY_NOTICES.md"
+      ]
+    },
+    "LICENSES/flashinfer/LICENSE": {
+      "scope": "Third-party material retained under its source terms; not relicensed MIT-0.",
+      "references": [
+        "THIRD_PARTY_NOTICES.md"
+      ]
+    },
+    "LICENSES/flashinfer/NOTICE": {
+      "scope": "Third-party material retained under its source terms; not relicensed MIT-0.",
+      "references": [
+        "THIRD_PARTY_NOTICES.md"
+      ]
+    },
+    "LICENSES/flashinfer/licenses/LICENSE.cutlass.txt": {
+      "scope": "Third-party material retained under its source terms; not relicensed MIT-0.",
+      "references": [
+        "THIRD_PARTY_NOTICES.md"
+      ]
+    },
+    "LICENSES/flashinfer/licenses/LICENSE.flashattention3.txt": {
+      "scope": "Third-party material retained under its source terms; not relicensed MIT-0.",
+      "references": [
+        "THIRD_PARTY_NOTICES.md"
+      ]
+    },
+    "LICENSES/flashinfer/licenses/LICENSE.fmt.txt": {
+      "scope": "Third-party material retained under its source terms; not relicensed MIT-0.",
+      "references": [
+        "THIRD_PARTY_NOTICES.md"
+      ]
+    },
+    "LICENSES/flashinfer/licenses/LICENSE.spdlog.txt": {
+      "scope": "Third-party material retained under its source terms; not relicensed MIT-0.",
+      "references": [
+        "THIRD_PARTY_NOTICES.md"
+      ]
+    },
+    "LICENSES/franzen-repository-Apache-2.0.txt": {
+      "scope": "Third-party material retained under its source terms; not relicensed MIT-0.",
+      "references": [
+        "THIRD_PARTY_NOTICES.md"
+      ]
+    },
+    "LICENSES/pennyroyal/UPSTREAM_LICENSE.txt": {
+      "scope": "Third-party material retained under its source terms; not relicensed MIT-0.",
+      "references": [
+        "THIRD_PARTY_NOTICES.md"
+      ]
+    },
+    "LICENSES/pennyroyal/mratsim_LICENSE.txt": {
+      "scope": "Third-party material retained under its source terms; not relicensed MIT-0.",
+      "references": [
+        "THIRD_PARTY_NOTICES.md"
+      ]
+    },
+    "METHOD.md": {
+      "references": [
+        "LICENSES/MIT-0.txt"
+      ],
+      "scope": "Only original submitter expression/compilation rights held. Facts, quoted material and source bytes are not claimed as owned or relicensed."
+    },
+    "PUBLICATION_CHECKLIST.md": {
+      "references": [
+        "LICENSES/MIT-0.txt"
+      ],
+      "scope": "Only original submitter expression/compilation rights held. Facts, quoted material and source bytes are not claimed as owned or relicensed."
+    },
+    "README.md": {
+      "references": [
+        "LICENSES/MIT-0.txt"
+      ],
+      "scope": "Only original submitter expression/compilation rights held. Facts, quoted material and source bytes are not claimed as owned or relicensed."
+    },
+    "THIRD_PARTY_NOTICES.md": {
+      "references": [
+        "LICENSES/MIT-0.txt"
+      ],
+      "scope": "Only original submitter expression/compilation rights held. Facts, quoted material and source bytes are not claimed as owned or relicensed."
+    },
+    "effective_source/README.dataset.md": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/git_status.txt": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/preamble.txt": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/setup_commands.json": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/Makefile": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/README.md": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/configs/eval.json": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/configs/inference.json": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/configs/inference.openrouter.json": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/configs/significance.json": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/inference/__init__.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/inference/agent/__init__.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/inference/agent/action_names.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt",
+        "LICENSES/franzen-repository-Apache-2.0.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/inference/agent/noop_repeat_guard.py": {
+      "references": [
+        "LICENSES/franzen-repository-Apache-2.0.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/inference/agent/priority_pace_reference.json": {
+      "references": [
+        "LICENSES/franzen-repository-Apache-2.0.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/inference/agent/priority_scheduler.py": {
+      "references": [
+        "LICENSES/franzen-repository-Apache-2.0.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/inference/agent/prompts.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt",
+        "LICENSES/franzen-repository-Apache-2.0.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/inference/agent/python_tool_sandbox.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt",
+        "LICENSES/franzen-repository-Apache-2.0.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/inference/agent/runtime_state.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt",
+        "LICENSES/franzen-repository-Apache-2.0.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/inference/agent/tool_agent.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt",
+        "LICENSES/franzen-repository-Apache-2.0.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/inference/agent/vision_context.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt",
+        "LICENSES/franzen-repository-Apache-2.0.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/inference/framework/__init__.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/inference/framework/kaggle.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/inference/framework/run.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt",
+        "LICENSES/franzen-repository-Apache-2.0.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/inference/framework/solver.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt",
+        "LICENSES/franzen-repository-Apache-2.0.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/inference/tools/__init__.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/inference/tools/chat.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/inference/tools/config_value.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/inference/tools/eval.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/inference/tools/eval_plot.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/inference/tools/significance.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/inference/tools/traces.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/inference/tools/vllm_runtime_lora_guard.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/inference/utils/__init__.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/inference/utils/animation.py": {
+      "references": [
+        "LICENSES/franzen-repository-Apache-2.0.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/inference/utils/frame_diff.py": {
+      "references": [
+        "LICENSES/franzen-repository-Apache-2.0.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/inference/utils/grid_utils.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/inference/utils/openai_compat.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt",
+        "LICENSES/franzen-repository-Apache-2.0.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/inference/utils/rearc_baselines.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/inference/utils/rearc_version.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/inference/utils/retained_functions.py": {
+      "references": [
+        "LICENSES/franzen-repository-Apache-2.0.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/inference/utils/run_artifacts.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/inference/utils/segmentation.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt",
+        "LICENSES/franzen-repository-Apache-2.0.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/inference/utils/viewer_artifacts.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/pyproject.toml": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/scripts/ensure_server_api_key.sh": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/scripts/server_curl.sh": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/uv.lock": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/viewer/__init__.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/viewer/data.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/viewer/index.html": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/ARC3-Inference/viewer/server.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/tufa-arc-agi-framework/Makefile": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/tufa-arc-agi-framework/README.md": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/tufa-arc-agi-framework/pyproject.toml": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/tufa-arc-agi-framework/scripts/refresh_examples.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/tufa-arc-agi-framework/src/taaf/__init__.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/tufa-arc-agi-framework/src/taaf/benchmark.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/tufa-arc-agi-framework/src/taaf/competition_arcade.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/tufa-arc-agi-framework/src/taaf/deploy.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/tufa-arc-agi-framework/src/taaf/deploy_inline.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/tufa-arc-agi-framework/src/taaf/deploy_kaggle.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/tufa-arc-agi-framework/src/taaf/deploy_slurm.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/tufa-arc-agi-framework/src/taaf/diagnostics.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/tufa-arc-agi-framework/src/taaf/game.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/tufa-arc-agi-framework/src/taaf/game_api.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/tufa-arc-agi-framework/src/taaf/game_examples.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/tufa-arc-agi-framework/src/taaf/kaggle/taaf_kaggle_run.ipynb": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/tufa-arc-agi-framework/src/taaf/kaggle/taaf_kaggle_run_share.ipynb": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/tufa-arc-agi-framework/src/taaf/kaggle_random.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/tufa-arc-agi-framework/src/taaf/solver.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/tufa-arc-agi-framework/src/taaf/solver_examples.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/tufa-arc-agi-framework/src/taaf/standard_benchmarks.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/tufa-arc-agi-framework/src/taaf/support.py": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/src/tufa-arc-agi-framework/uv.lock": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/taaf-kaggle-bundle.json": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "effective_source/teardown_commands.json": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt"
+      ],
+      "scope": "Publisher text and inherited patch contributions retain their terms. No submitter code overlay in this source tree.",
+      "mapping": "provenance/source_layers.json"
+    },
+    "notebook/arc3-control-v3-356741836.ipynb": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt",
+        "LICENSES/franzen-repository-Apache-2.0.txt",
+        "LICENSES/MIT-0.txt"
+      ],
+      "scope": "Inherited code/context retain upstream terms. MIT-0 only for original expression in submitter changes where the submitter holds rights; no blanket notebook ownership claim.",
+      "mapping": "provenance/notebook_cell_map.json"
+    },
+    "notebook/native_metadata_observed_20261025.json": {
+      "references": [
+        "LICENSES/MIT-0.txt"
+      ],
+      "scope": "Only original submitter expression/compilation rights held. Facts, quoted material and source bytes are not claimed as owned or relicensed."
+    },
+    "provenance/inherited_patch.json": {
+      "references": [
+        "LICENSES/MIT-0.txt"
+      ],
+      "scope": "Only original submitter expression/compilation rights held. Facts, quoted material and source bytes are not claimed as owned or relicensed."
+    },
+    "provenance/inherited_patch_layer_correspondence.json": {
+      "references": [
+        "LICENSES/MIT-0.txt"
+      ],
+      "scope": "Only original submitter expression/compilation rights held. Facts, quoted material and source bytes are not claimed as owned or relicensed."
+    },
+    "provenance/models/RadixArk_pinned_README.md": {
+      "scope": "Third-party material retained under its source terms; not relicensed MIT-0.",
+      "references": [
+        "THIRD_PARTY_NOTICES.md"
+      ]
+    },
+    "provenance/models/drafter_compact_sources.json": {
+      "scope": "Third-party material retained under its source terms; not relicensed MIT-0.",
+      "references": [
+        "THIRD_PARTY_NOTICES.md"
+      ]
+    },
+    "provenance/models/target_README.md": {
+      "scope": "Third-party material retained under its source terms; not relicensed MIT-0.",
+      "references": [
+        "THIRD_PARTY_NOTICES.md"
+      ]
+    },
+    "provenance/notebook_cell_map.json": {
+      "references": [
+        "LICENSES/MIT-0.txt"
+      ],
+      "scope": "Only original submitter expression/compilation rights held. Facts, quoted material and source bytes are not claimed as owned or relicensed."
+    },
+    "provenance/publisher_declaration.json": {
+      "references": [
+        "LICENSES/MIT-0.txt"
+      ],
+      "scope": "Only original submitter expression/compilation rights held. Facts, quoted material and source bytes are not claimed as owned or relicensed."
+    },
+    "provenance/run_py_inherited_added_blocks.json": {
+      "references": [
+        "LICENSES/MIT-0.txt"
+      ],
+      "scope": "Only original submitter expression/compilation rights held. Facts, quoted material and source bytes are not claimed as owned or relicensed."
+    },
+    "provenance/source_layers.json": {
+      "references": [
+        "LICENSES/MIT-0.txt"
+      ],
+      "scope": "Only original submitter expression/compilation rights held. Facts, quoted material and source bytes are not claimed as owned or relicensed."
+    },
+    "provenance/upstream_notebook.ipynb": {
+      "scope": "Third-party material retained under its source terms; not relicensed MIT-0.",
+      "references": [
+        "THIRD_PARTY_NOTICES.md"
+      ]
+    },
+    "provenance/upstream_notebook_license_identity.json": {
+      "references": [
+        "LICENSES/MIT-0.txt"
+      ],
+      "scope": "Only original submitter expression/compilation rights held. Facts, quoted material and source bytes are not claimed as owned or relicensed."
+    },
+    "recipe/added_cell_0.txt": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt",
+        "LICENSES/franzen-repository-Apache-2.0.txt",
+        "LICENSES/MIT-0.txt"
+      ],
+      "scope": "Inherited code/context retain upstream terms. MIT-0 only for original expression in submitter changes where the submitter holds rights; no blanket notebook ownership claim.",
+      "mapping": "provenance/notebook_cell_map.json"
+    },
+    "recipe/added_cell_1.txt": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt",
+        "LICENSES/franzen-repository-Apache-2.0.txt",
+        "LICENSES/MIT-0.txt"
+      ],
+      "scope": "Inherited code/context retain upstream terms. MIT-0 only for original expression in submitter changes where the submitter holds rights; no blanket notebook ownership claim.",
+      "mapping": "provenance/notebook_cell_map.json"
+    },
+    "recipe/added_cell_25.txt": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt",
+        "LICENSES/franzen-repository-Apache-2.0.txt",
+        "LICENSES/MIT-0.txt"
+      ],
+      "scope": "Inherited code/context retain upstream terms. MIT-0 only for original expression in submitter changes where the submitter holds rights; no blanket notebook ownership claim.",
+      "mapping": "provenance/notebook_cell_map.json"
+    },
+    "recipe/harness-changes.patch": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt",
+        "LICENSES/franzen-repository-Apache-2.0.txt",
+        "LICENSES/MIT-0.txt"
+      ],
+      "scope": "Inherited code/context retain upstream terms. MIT-0 only for original expression in submitter changes where the submitter holds rights; no blanket notebook ownership claim.",
+      "mapping": "provenance/notebook_cell_map.json"
+    },
+    "recipe/notebook_adaptation.diff": {
+      "references": [
+        "LICENSES/MIT-upstream-TAAF.txt",
+        "LICENSES/franzen-repository-Apache-2.0.txt",
+        "LICENSES/MIT-0.txt"
+      ],
+      "scope": "Inherited code/context retain upstream terms. MIT-0 only for original expression in submitter changes where the submitter holds rights; no blanket notebook ownership claim.",
+      "mapping": "provenance/notebook_cell_map.json"
+    },
+    "runtime_inputs.json": {
+      "references": [
+        "LICENSES/MIT-0.txt"
+      ],
+      "scope": "Only original submitter expression/compilation rights held. Facts, quoted material and source bytes are not claimed as owned or relicensed."
+    },
+    "source_contract.json": {
+      "references": [
+        "LICENSES/MIT-0.txt"
+      ],
+      "scope": "Only original submitter expression/compilation rights held. Facts, quoted material and source bytes are not claimed as owned or relicensed."
+    },
+    "verify_selected_source.py": {
+      "references": [
+        "LICENSES/MIT-0.txt"
+      ],
+      "scope": "Only original submitter expression/compilation rights held. Facts, quoted material and source bytes are not claimed as owned or relicensed."
+    }
+  },
+  "self_scope": "MIT-0 for original compilation expression only, excluding third-party material and facts."
+}

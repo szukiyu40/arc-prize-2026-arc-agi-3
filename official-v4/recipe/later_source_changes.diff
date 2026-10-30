@@ -1,0 +1,322 @@
+--- prior_reconstructed/src/ARC3-Inference/inference/agent/tool_agent.py
++++ official_v4/src/ARC3-Inference/inference/agent/tool_agent.py
+@@ -1,5 +1,6 @@
+ """Direct OpenAI-compatible tool-calling analyzer for ARC puzzle runs."""
+ from __future__ import annotations
++from arc3_deadline import get_budget, DeadlineReached, require_work, request_timeouts
+ 
+ import base64
+ import heapq
+@@ -1973,6 +1974,37 @@
+     return float(reference["by_level"].get(str(level), reference["fallback_tokens"]))
+ 
+ 
++
++_ARC3_SCHEDULER_TRACE_LOCK = threading.Lock()
++_ARC3_SCHEDULER_TRACE_SEQ = 0
++_ARC3_TELEMETRY_ERROR = None
++
++
++def _arc3_scheduler_trace(kind, **fields):
++    trace_path = os.environ.get("ARC3_SCHEDULER_TRACE", "")
++    if not trace_path:
++        return
++    global _ARC3_SCHEDULER_TRACE_SEQ, _ARC3_TELEMETRY_ERROR
++    with _ARC3_SCHEDULER_TRACE_LOCK:
++        if _ARC3_TELEMETRY_ERROR is not None:
++            return
++        _ARC3_SCHEDULER_TRACE_SEQ += 1
++        before = time.monotonic()
++        epoch = time.time()
++        after = time.monotonic()
++        record = dict(seq=_ARC3_SCHEDULER_TRACE_SEQ, monotonic=before,
++                      epoch=epoch, monotonic_after=after,
++                      thread=threading.get_ident(), kind=kind, **fields)
++        try:
++            with open(trace_path, "a", encoding="utf-8") as stream:
++                stream.write(json.dumps(record, sort_keys=True) + "\n")
++        except OSError as exc:
++            # Do not interrupt a gate mutation or prevent its subsequent pump.
++            # The notebook exposes this in-memory failure in the final manifest.
++            _ARC3_TELEMETRY_ERROR = {"type": type(exc).__name__, "message": str(exc)[:500],
++                                   "failed_seq": _ARC3_SCHEDULER_TRACE_SEQ}
++
++
+ class _PriorityGate:
+     """Harness-side admission control, for when the server ignores `priority`.
+ 
+@@ -2014,6 +2046,7 @@
+             self._clock_start = min(self._clock_start, started_at) if self._clock_start is not None else started_at
+             if deadline is not None:
+                 self._clock_deadline = min(self._clock_deadline, deadline) if self._clock_deadline is not None else deadline
++            _arc3_scheduler_trace('gate_clock', started=self._clock_start, deadline=self._clock_deadline)
+ 
+     def _snapshot_priority(self, snapshot: PrioritySnapshot, now: float) -> int:
+         elapsed = max(0.0, now - self._clock_start) if self._clock_start is not None else 0.0
+@@ -2063,6 +2096,7 @@
+     def release(self) -> None:
+         with self._cond:
+             self._free += 1
++            _arc3_scheduler_trace('release', reason='session_finally')
+             self._pump()
+ 
+     def handover(self, priority: int, snapshot: PrioritySnapshot | None = None) -> None:  # noqa: D401
+@@ -2074,10 +2108,17 @@
+         _t0 = time.monotonic()
+         with self._cond:
+             self._free += 1
+-            self._enqueue_and_wait(priority, snapshot)
++            _arc3_scheduler_trace('release', reason='handover')
++            try:
++                self._enqueue_and_wait(priority, snapshot)
++            except DeadlineReached:
++                # Restore the caller's lease; session.finally releases it once.
++                self._free -= 1
++                raise
+         _GATE_STATS["handover_ms"] += int(1000 * (time.monotonic() - _t0))
+ 
+     def _enqueue_and_wait(self, priority: int, snapshot: PrioritySnapshot | None = None) -> None:
++        require_work("priority admission")
+         # TEMPORARY: with slots == games nobody should ever block here
+         _GATE_STATS["enqueued"] += 1
+         self._seq += 1
+@@ -2087,16 +2128,30 @@
+         # negated so the heap pops the HIGHEST priority; the sequence number
+         # breaks ties by arrival
+         heapq.heappush(self._waiting, (-int(priority), token))
++        _arc3_scheduler_trace('enqueue', token=token, priority=int(priority))
+         self._pump()
+         if token not in self._admitted:
+             _GATE_STATS["blocked"] += 1
+             t0 = time.monotonic()
+             while token not in self._admitted:
+-                self._cond.wait()
++                remaining = None if get_budget() is None else get_budget().remaining_work()
++                if remaining is not None and remaining <= 0:
++                    self._waiting = [(p, t) for p, t in self._waiting if t != token]
++                    heapq.heapify(self._waiting)
++                    self._snapshots.pop(token, None)
++                    raise DeadlineReached("notebook work deadline in priority queue")
++                self._cond.wait(timeout=remaining)
+             _GATE_STATS["blocked_ms"] += int(1000 * (time.monotonic() - t0))
+         self._admitted.discard(token)
++        if get_budget() is not None and get_budget().remaining_work() <= 0:
++            self._free += 1
++            raise DeadlineReached("notebook deadline raced with admission")
++        _arc3_scheduler_trace('acquired', token=token)
+ 
+     def _pump(self) -> None:
++        if get_budget() is not None and get_budget().remaining_work() <= 0:
++            self._cond.notify_all()
++            return
+         if _priority_refresh_enabled() and self._free > 0:
+             now = time.monotonic()
+             self._waiting = [
+@@ -5270,7 +5325,7 @@
+                 # (connect, read): one scalar gives the connect phase the whole
+                 # read budget, so an unreachable host stalls a single attempt
+                 # for the rest of the game
+-                timeout=(
++                timeout=request_timeouts(
+                     _CONNECT_TIMEOUT_SECONDS,
+                     request_timeout_seconds if request_timeout_seconds is not None else self._timeout,
+                 ),
+@@ -7104,6 +7159,10 @@
+                 if step_executed:
+                     break
+ 
++        except DeadlineReached:
++            # Preserve completed usage/history in finally and let the solver
++            # classify its existing deadline signal as cancellation.
++            raise
+         except requests.RequestException as exc:
+             if _is_read_timeout(exc) and _yield_on_timeout_enabled():
+                 # Keep this turn's completed exchanges and hand control back to
+--- prior_reconstructed/src/ARC3-Inference/inference/framework/solver.py
++++ official_v4/src/ARC3-Inference/inference/framework/solver.py
+@@ -1,6 +1,7 @@
+ """TAAF solver adapter for the existing tool-using harness."""
+ 
+ from __future__ import annotations
++from arc3_deadline import get_budget, DeadlineReached, require_work
+ 
+ import asyncio
+ import contextlib
+@@ -45,6 +46,7 @@
+     _PRIORITY_UNTRIMMED_BASE,
+     ToolAgent,
+     _priority_gate,
++    _arc3_scheduler_trace,
+ )
+ from inference.framework.kaggle import (
+     DEFAULT_QWEN_MODEL_DATASET_SOURCE,
+@@ -519,6 +521,8 @@
+         return len(run.history) if run is not None else 0
+ 
+     def runtime_limit_reached(self) -> bool:
++        if get_budget() is not None and get_budget().remaining_work() <= 0:
++            return True
+         if self.solver.max_runtime_s_per_game is None:
+             return False
+         return (
+@@ -531,6 +535,9 @@
+             remaining = None
+         else:
+             remaining = max(0.0, self.solver.max_runtime_s_per_game - elapsed)
++        if get_budget() is not None:
++            shared = get_budget().remaining_work()
++            remaining = shared if remaining is None else min(remaining, shared)
+         return {"run_elapsed_seconds": elapsed, "time_remaining_seconds": remaining}
+ 
+     def request_timeout_seconds(self) -> float | None:
+@@ -611,6 +618,8 @@
+         # A game that has not started yet sits in the top band, so every game
+         # gets going in queue order before any that has already trimmed comes
+         # back for a second turn.
++        _arc3_scheduler_trace("session_begin", game_id=run.game_id,
++                              game_index=self.game_index, pass_index=self.pass_index)
+         gate = _priority_gate()
+         if gate is not None:
+             deadline = (
+@@ -622,7 +631,12 @@
+                 soft_deadline = time.monotonic() + soft_remaining
+                 deadline = min(deadline, soft_deadline) if deadline is not None else soft_deadline
+             gate.configure_clock(self.started_at, deadline)
+-            gate.acquire(_PRIORITY_UNTRIMMED_BASE - self._queue_position())
++            try:
++                gate.acquire(_PRIORITY_UNTRIMMED_BASE - self._queue_position())
++            except DeadlineReached as exc:
++                _arc3_scheduler_trace('session_end', game_id=run.game_id,
++                                      admission_failed=True, error_type=type(exc).__name__)
++                raise
+         try:
+             self.seed_initial_history()
+             self.write_runtime_state()
+@@ -630,11 +644,15 @@
+             self.write_viewer_payload()
+             self._play_inner()
+         finally:
++            _arc3_scheduler_trace("session_end", game_id=run.game_id)
+             if gate is not None:
+                 gate.release()
+ 
+     def _play_inner(self) -> None:
+         run = self.game.game_run
++        if self.should_stop():
++            self._finish_if_needed()
++            return
+         if self.solver._claim_warmup_slot():
+             # Straight to the engine - _execute_auto_reset takes the same path
+             # and needs no analyzer, so this works with the endpoint still
+@@ -728,6 +746,10 @@
+                     continue
+                 if not result.step_executed:
+                     continue
++        except DeadlineReached:
++            if run.state == "playing":
++                run.state = "cancelled"
++            run.solver_note = "notebook work deadline"
+         except Exception as exc:
+             if run.final_score is None:
+                 run.solver_note = f"error: {type(exc).__name__}: {exc}"
+@@ -746,7 +768,8 @@
+     def _finish_if_needed(self) -> None:
+         run = self.game.game_run
+         if run is not None and run.final_score is None:
+-            if self.stop_event.is_set() and run.state == "playing":
++            deadline_reached = get_budget() is not None and get_budget().remaining_work() <= 0
++            if (self.stop_event.is_set() or deadline_reached) and run.state == "playing":
+                 run.state = "cancelled"
+             self.game.finish_game()
+ 
+@@ -1557,6 +1580,8 @@
+         if not tasks:
+             return
+         timeout = max(0.0, float(self.cancel_drain_timeout_s))
++        if get_budget() is not None:
++            timeout = min(timeout, max(0.0, get_budget().remaining_cleanup()-30.0))
+         if timeout == 0.0:
+             return
+         done, _pending = await asyncio.wait(tasks, timeout=timeout)
+@@ -1790,6 +1815,8 @@
+         return env
+ 
+     def soft_time_remaining_seconds(self) -> float | None:
++        if get_budget() is not None:
++            return get_budget().remaining_work()
+         if self.soft_end_time is None:
+             return None
+         now = (
+@@ -1868,6 +1895,7 @@
+             viewer_data_path = self._artifacts_dir() / f"{run_stem}_viewer_data.json"
+             transcript_path = self._transcripts_dir() / f"{run_stem}.txt"
+             analysis_relpath = f"solver_analysis/{run_stem}.html"
++            require_work("game worker")
+             analyzer = self._make_analyzer(game, index, local_server)
+             session = _HarnessGameSession(
+                 solver=self,
+@@ -1882,6 +1910,13 @@
+                 viewer_data_path=viewer_data_path,
+             )
+             session.play()
++        except DeadlineReached:
++            run = game.game_run
++            if run is not None and run.final_score is None:
++                if run.state == "playing":
++                    run.state = "cancelled"
++                run.solver_note = "notebook work deadline before admission"
++                game.finish_game()
+         except Exception as exc:
+             self._finish_after_error(game, exc)
+ 
+--- prior_reconstructed/src/tufa-arc-agi-framework/src/taaf/benchmark.py
++++ official_v4/src/tufa-arc-agi-framework/src/taaf/benchmark.py
+@@ -2,6 +2,7 @@
+ lives in ``taaf.deploy*``."""
+ 
+ from __future__ import annotations
++from arc3_deadline import get_budget, require_work
+ 
+ import asyncio
+ import copy
+@@ -106,6 +107,7 @@
+                 if w < 0:
+                     raise ValueError(f"game_weights[{i}] = {w} must be >= 0")
+ 
++        require_work("benchmark setup")
+         self.start_time = datetime.now()
+         self.end_time = None
+ 
+@@ -129,8 +131,6 @@
+         self.solver.soft_end_time = soft_end_time
+         self.solver.minimal_diagnostics = minimal_diagnostics
+         played_solver = copy.deepcopy(self.solver)
+-        played_solver.setup()
+-        self.solver_label = played_solver.label
+ 
+         self.games = [copy.deepcopy(g) for g in self.games]
+ 
+@@ -146,8 +146,11 @@
+         # game/resource opened here — including when the duplicate-id
+         # validation (or an interrupt) fires mid-setup, before the solver runs.
+         try:
++            played_solver.setup()
++            self.solver_label = played_solver.label
+             for pass_idx in range(self.n_passes):
+                 for game in self.games:
++                    require_work("game setup")
+                     game_copy = copy.deepcopy(game)
+                     game_copy.start_game(session)
+                     assert game_copy.game_run is not None
+@@ -299,6 +302,11 @@
+                 traceback.print_exc()
+ 
+     async def _cancel_at(self, soft_end_time: datetime, target: asyncio.Task[Any]) -> None:
++        if get_budget() is not None:
++            await asyncio.sleep(get_budget().remaining_work())
++            self._deadline_fired = True
++            target.cancel()
++            return
+         # Match local-naive vs UTC against ``soft_end_time``'s tzinfo.
+         if soft_end_time.tzinfo is None:
+             now = datetime.now()

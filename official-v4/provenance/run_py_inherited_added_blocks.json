@@ -1,0 +1,46 @@
+{
+  "competition": "ARC-AGI-3",
+  "path": "src/ARC3-Inference/inference/framework/run.py",
+  "blocks": [
+    {
+      "tag": "insert",
+      "original_zero_based_half_open": [
+        469,
+        469
+      ],
+      "patched_zero_based_half_open": [
+        469,
+        470
+      ],
+      "added_bytes": {
+        "bytes": 74,
+        "sha256": "c3b63f2499e6f6d404dc4636f8416494c95de3c116a28e43194bdb817cd3a8f3"
+      },
+      "exact_block_present_in_pinned_fork": true,
+      "occurrences_in_fork": 1,
+      "fork_line_1based": 422,
+      "text": "        max_generated_tokens_per_game=args.max_generated_tokens_per_game,\n"
+    },
+    {
+      "tag": "insert",
+      "original_zero_based_half_open": [
+        1272,
+        1272
+      ],
+      "patched_zero_based_half_open": [
+        1273,
+        1282
+      ],
+      "added_bytes": {
+        "bytes": 402,
+        "sha256": "756c9bb1ff3d9f3f0748512497b2878212948fc0d398b88748e5f0e71c23e54e"
+      },
+      "exact_block_present_in_pinned_fork": true,
+      "occurrences_in_fork": 1,
+      "fork_line_1based": 1226,
+      "text": "    parser.add_argument(\n        \"--max-generated-tokens-per-game\",\n        type=int,\n        default=None,\n        help=\"Give up on a game once it has generated this many tokens. A \"\n             \"wall-clock limit means something different on every backend and \"\n             \"moves hour to hour on a hosted API; this is what makes an \"\n             \"offline run comparable with a Kaggle one.\",\n    )\n"
+    }
+  ],
+  "all_added_blocks_present": true,
+  "scope": "Contiguous added block text identity only; deleted portions and unchanged base are separate."
+}

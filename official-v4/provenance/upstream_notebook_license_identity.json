@@ -1,0 +1,17 @@
+{
+  "competition": "ARC-AGI-3",
+  "url": "https://www.kaggle.com/code/dfranzen/arc-agi-3-milestone-2-solution",
+  "ui_observed_utc": "2026-10-30T13:46:48.602Z",
+  "native_observed_utc": "2026-10-30T13:46:41.361069+00:00",
+  "kernel_id": 136499478,
+  "current_version": 3,
+  "source_bytes": 569095,
+  "source_sha256": "88a379f17c3a4ba8c98715fc23155346ccd6eb289bdafebadfc61a3178f9d9bd",
+  "current_source_exact_bytes_equal_pinned_upstream": true,
+  "ui_declared_notebook_license": "Apache 2.0",
+  "license_url": "https://www.apache.org/licenses/LICENSE-2.0",
+  "ui_license_excerpt": "\t\t\t142 heading License, Value: 2\n\t\t\t\t143 text License\n\t\t\t144 container\n\t\t\t\t145 text This Notebook has been released under the\n\t\t\t\t146 link Description: Apache 2.0, Value: apache.org/licenses/LICENSE-2.0\n\t\t\t\t147 text open source license.\n\t\t\t148 heading Continue exploring, Value: 2",
+  "full_ui_sha256": "e0bb707effc6378215f78b0f5169c4580fcc58f5ff45900e6dfe7f1fef08aeb4",
+  "native_metadata_sha256": "522a4805292a92c6b82fc31e087cb88ed14f2151130e3bfcf56317cf3557d50c",
+  "scope": "Current public notebook license declaration bound to the exact currentVersion3 source; underlying third-party rights remain separate. No prize eligibility determination."
+}

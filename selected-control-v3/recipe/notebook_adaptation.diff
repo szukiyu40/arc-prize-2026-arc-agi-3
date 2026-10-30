@@ -1,0 +1,104 @@
+--- upstream/cell16
++++ selected/cell18
+@@ -25,4 +25,19 @@
+         )
+ 
+ # show config
+-print('benchmark.solver:', bm.solver)+
++
++assert TRUE_SUBMISSION == ARC3_TRUE_SUBMISSION
++if not TRUE_SUBMISSION:
++    bm.solver.max_runtime_s_per_game = 7200
++    bm.solver.analyzer_timeout = 900.0
++    bm.solver.max_actions_per_game = None
++    bm.solver.save_request_logs = True
++    bm.n_passes = 1
++    bm.game_weights = None
++    demo_excluded_games = []
++    bm.solver.concurrency = 25 if USE_PRIORITY_SCHEDULING else 10
++ARC3_MANIFEST.update(status="configured", setup_seconds=time.time()-ARC3_RUN_START,
++                     config={k: str(v) for k, v in setup_env.items()})
++arc3_write_manifest()
++print("Final benchmark.solver:", bm.solver)
+
+--- upstream/cell20
++++ selected/cell22
+@@ -73,15 +73,68 @@
+     competition_env_files = str(Path("/kaggle/input/competitions/arc-prize-2026-arc-agi-3/arc_agi_3_wheels").parent / "environment_files")
+     bm.games = _offline_games(competition_env_files)
+ 
+-# Outside a real submission, stop ~10 min before the wall-clock budget for a graceful exit.
++
++# Preserve the upstream competition deadline handling. The short budget
++# applies only to ordinary Save & Run validation.
+ soft_end = None
+ if not TRUE_SUBMISSION:
+-    budget = float(getattr(target, "max_runtime_s", 0.0) or 0.0)
+-    if budget > 0:
+-        soft_end = datetime.fromtimestamp(NOTEBOOK_START_EPOCH) + timedelta(seconds=budget - min(600.0, budget / 2))
++    if len(bm.games) != ARC3_MANIFEST["expected_demo_games"]:
++        raise RuntimeError("Public game count changed; review the validation set before running.")
++    demo_end_epoch = min(time.time()+7200, ARC3_RUN_START+9000-180)
++    if demo_end_epoch <= time.time():
++        raise RuntimeError("Setup exhausted the demo budget; no benchmark was run.")
++    soft_end = datetime.fromtimestamp(demo_end_epoch)
++ARC3_MANIFEST.update(status="running", game_count=len(bm.games),
++                     benchmark_started_epoch=time.time())
++arc3_write_manifest()
+ 
+ # Play the benchmark; teardown commands run even if the run raises.
+-await bm.run(soft_end_time=soft_end, runtime_environment=target, minimal_diagnostics=TRUE_SUBMISSION)
++try:
++    await bm.run(soft_end_time=soft_end, runtime_environment=target,
++                 minimal_diagnostics=TRUE_SUBMISSION)
++    rows = []
++    for result in bm.game_runs:
++        rows.append({"game_id": result.game_id, "state": result.state,
++                     "levels_completed": result.levels_completed,
++                     "number_of_levels": result.number_of_levels,
++                     "actions_per_level": list(result.actions_per_level),
++                     "final_score": result.final_score,
++                     "generated_tokens": result.final_generated_tokens + sum(r.generated_tokens for r in result.history),
++                     "uncached_input_tokens": result.final_uncached_input_tokens + sum(r.uncached_input_tokens for r in result.history),
++                     "first_action_seconds": result.history[0].wallclock_seconds if result.history else None,
++                     "first_model_action_seconds": next((r.wallclock_seconds for r in result.history if r.generated_tokens > 0), None),
++                     "wallclock_seconds": result.final_wallclock_seconds})
++    arc3_write_json("arc3_game_results.json", rows)
++    invalid = (len(rows) != len(bm.games) * bm.n_passes or
++               any(r["state"] in {"crashed", "playing", "not_started"} or
++                   r["final_score"] is None for r in rows))
++    if not TRUE_SUBMISSION and not any(r["generated_tokens"] > 0 for r in rows):
++        invalid = True
++    uncovered = [r["game_id"] for r in rows
++                 if r["generated_tokens"] <= 0 or sum(r["actions_per_level"]) <= 0]
++    ARC3_MANIFEST.update(status="completed_with_game_errors" if invalid else "completed",
++                         game_count=len(bm.games), game_run_count=len(rows),
++                         uncovered_games=uncovered, coverage_passed=not uncovered and not invalid,
++                         levels_completed=sum(r["levels_completed"] for r in rows),
++                         score_scope="gateway_diagnostics_not_leaderboard" if TRUE_SUBMISSION else "public_demo_validation_only",
++                         our_score=None if TRUE_SUBMISSION or invalid or not rows else sum(r["final_score"] for r in rows)/len(rows))
++    # The upstream benchmark catches solver exceptions. Do not let failed
++    # demo validation produce a selectable placeholder submission.
++    if invalid and not TRUE_SUBMISSION:
++        raise RuntimeError("Demo validation had incomplete/crashed games; no placeholder will be written.")
++    if uncovered and not TRUE_SUBMISSION:
++        ARC3_MANIFEST["status"] = "insufficient_coverage"
++        raise RuntimeError("Demo validation did not reach every game; raw score retained, no placeholder will be written.")
++except BaseException as exc:
++    if ARC3_MANIFEST.get("status") != "insufficient_coverage":
++        ARC3_MANIFEST["status"] = "failed"
++    ARC3_MANIFEST.update(error_type=type(exc).__name__, error=str(exc)[:2000])
++    raise
++finally:
++    ARC3_MANIFEST["elapsed_seconds"] = time.time() - ARC3_RUN_START
++    arc3_write_manifest()
++    if not TRUE_SUBMISSION:
++        arc3_archive_outputs()
+ if not TRUE_SUBMISSION:
+     # An offline run isn't scored, but Kaggle still expects a submission.parquet output.
+     import pandas as pd
+@@ -89,4 +142,4 @@
+     pd.DataFrame(
+         [["1_0", "1", True, 1]],
+         columns=["row_id", "game_id", "end_of_game", "score"],
+-    ).to_parquet(WORKING_DIR / "submission.parquet", index=False)+    ).to_parquet(WORKING_DIR / "submission.parquet", index=False)

@@ -1,0 +1,489 @@
+{
+  "scope": "Mechanical expression mapping, not ownership adjudication.",
+  "inherited_cells": [
+    {
+      "upstream_index": 0,
+      "selected_index": 2,
+      "cell_type": "markdown",
+      "upstream": {
+        "bytes": 2308,
+        "sha256": "d5158aceb9a6992c6e019b043e6b04531e9907bf65e603e9dca851830180d609"
+      },
+      "selected": {
+        "bytes": 2308,
+        "sha256": "d5158aceb9a6992c6e019b043e6b04531e9907bf65e603e9dca851830180d609"
+      },
+      "source_equal": true,
+      "edits": []
+    },
+    {
+      "upstream_index": 1,
+      "selected_index": 3,
+      "cell_type": "markdown",
+      "upstream": {
+        "bytes": 81,
+        "sha256": "169be8c9c24dcccc2c6250a89fa76f08a3d643b04a5af496373679a39c341160"
+      },
+      "selected": {
+        "bytes": 81,
+        "sha256": "169be8c9c24dcccc2c6250a89fa76f08a3d643b04a5af496373679a39c341160"
+      },
+      "source_equal": true,
+      "edits": []
+    },
+    {
+      "upstream_index": 2,
+      "selected_index": 4,
+      "cell_type": "code",
+      "upstream": {
+        "bytes": 498821,
+        "sha256": "6fdcd1ae7445c0cfc26eec1047363aa0c196c867d289a35b6f64403b5a43dce2"
+      },
+      "selected": {
+        "bytes": 498821,
+        "sha256": "6fdcd1ae7445c0cfc26eec1047363aa0c196c867d289a35b6f64403b5a43dce2"
+      },
+      "source_equal": true,
+      "edits": []
+    },
+    {
+      "upstream_index": 3,
+      "selected_index": 5,
+      "cell_type": "markdown",
+      "upstream": {
+        "bytes": 203,
+        "sha256": "fbfb0ea44fbfcd82ed9096b81a8e2fef4307951c5f1768d02d6a7d438a9519bb"
+      },
+      "selected": {
+        "bytes": 203,
+        "sha256": "fbfb0ea44fbfcd82ed9096b81a8e2fef4307951c5f1768d02d6a7d438a9519bb"
+      },
+      "source_equal": true,
+      "edits": []
+    },
+    {
+      "upstream_index": 4,
+      "selected_index": 6,
+      "cell_type": "code",
+      "upstream": {
+        "bytes": 5175,
+        "sha256": "9850ba064f46a851bfe7d29817a46c5fddd76f8eafcd6735a499da57cadac50c"
+      },
+      "selected": {
+        "bytes": 5175,
+        "sha256": "9850ba064f46a851bfe7d29817a46c5fddd76f8eafcd6735a499da57cadac50c"
+      },
+      "source_equal": true,
+      "edits": []
+    },
+    {
+      "upstream_index": 5,
+      "selected_index": 7,
+      "cell_type": "markdown",
+      "upstream": {
+        "bytes": 57,
+        "sha256": "1dca3bc6097eb7a3635006f77ab8540fd09c41884eaf452fb1ef6ef49166aa6f"
+      },
+      "selected": {
+        "bytes": 57,
+        "sha256": "1dca3bc6097eb7a3635006f77ab8540fd09c41884eaf452fb1ef6ef49166aa6f"
+      },
+      "source_equal": true,
+      "edits": []
+    },
+    {
+      "upstream_index": 6,
+      "selected_index": 8,
+      "cell_type": "code",
+      "upstream": {
+        "bytes": 2321,
+        "sha256": "7ef53c4c2f0a6c2e636be00056ac7ce2a6813c8d6d2ced8e65937e1d6465641a"
+      },
+      "selected": {
+        "bytes": 2321,
+        "sha256": "7ef53c4c2f0a6c2e636be00056ac7ce2a6813c8d6d2ced8e65937e1d6465641a"
+      },
+      "source_equal": true,
+      "edits": []
+    },
+    {
+      "upstream_index": 7,
+      "selected_index": 9,
+      "cell_type": "markdown",
+      "upstream": {
+        "bytes": 141,
+        "sha256": "19ce8a29df261ac700964b81a477d5aba97956efd908f369ff337c5e52ba3545"
+      },
+      "selected": {
+        "bytes": 141,
+        "sha256": "19ce8a29df261ac700964b81a477d5aba97956efd908f369ff337c5e52ba3545"
+      },
+      "source_equal": true,
+      "edits": []
+    },
+    {
+      "upstream_index": 8,
+      "selected_index": 10,
+      "cell_type": "code",
+      "upstream": {
+        "bytes": 525,
+        "sha256": "0acc65bba3dd5435f5e25a73cb378b3ff269364f0f7a5a99226fc4a41060ae44"
+      },
+      "selected": {
+        "bytes": 525,
+        "sha256": "0acc65bba3dd5435f5e25a73cb378b3ff269364f0f7a5a99226fc4a41060ae44"
+      },
+      "source_equal": true,
+      "edits": []
+    },
+    {
+      "upstream_index": 9,
+      "selected_index": 11,
+      "cell_type": "markdown",
+      "upstream": {
+        "bytes": 117,
+        "sha256": "8c16a184c0f83c761216b244646523dd8d1a376779d2a5da4d65c06d3e310948"
+      },
+      "selected": {
+        "bytes": 117,
+        "sha256": "8c16a184c0f83c761216b244646523dd8d1a376779d2a5da4d65c06d3e310948"
+      },
+      "source_equal": true,
+      "edits": []
+    },
+    {
+      "upstream_index": 10,
+      "selected_index": 12,
+      "cell_type": "code",
+      "upstream": {
+        "bytes": 1330,
+        "sha256": "e90a3a7aafca6e8f3a041b70a4dbbec721adb62b58a19e1f89ac4f019d0ae976"
+      },
+      "selected": {
+        "bytes": 1330,
+        "sha256": "e90a3a7aafca6e8f3a041b70a4dbbec721adb62b58a19e1f89ac4f019d0ae976"
+      },
+      "source_equal": true,
+      "edits": []
+    },
+    {
+      "upstream_index": 11,
+      "selected_index": 13,
+      "cell_type": "markdown",
+      "upstream": {
+        "bytes": 67,
+        "sha256": "d0ace6204e232ecb13ef892cbb3c7f121d826c4e28a41f0e7f16b281a686dd07"
+      },
+      "selected": {
+        "bytes": 67,
+        "sha256": "d0ace6204e232ecb13ef892cbb3c7f121d826c4e28a41f0e7f16b281a686dd07"
+      },
+      "source_equal": true,
+      "edits": []
+    },
+    {
+      "upstream_index": 12,
+      "selected_index": 14,
+      "cell_type": "code",
+      "upstream": {
+        "bytes": 18718,
+        "sha256": "c362ce556dc35ed0725c31b3f5c60b86bc83a2d94152fd1a109116813a4b5cf8"
+      },
+      "selected": {
+        "bytes": 18718,
+        "sha256": "c362ce556dc35ed0725c31b3f5c60b86bc83a2d94152fd1a109116813a4b5cf8"
+      },
+      "source_equal": true,
+      "edits": []
+    },
+    {
+      "upstream_index": 13,
+      "selected_index": 15,
+      "cell_type": "markdown",
+      "upstream": {
+        "bytes": 196,
+        "sha256": "225a9c44015867332512f5f96fc1436c4c094d23fcf1ed29e76778c4e2b5da89"
+      },
+      "selected": {
+        "bytes": 196,
+        "sha256": "225a9c44015867332512f5f96fc1436c4c094d23fcf1ed29e76778c4e2b5da89"
+      },
+      "source_equal": true,
+      "edits": []
+    },
+    {
+      "upstream_index": 14,
+      "selected_index": 16,
+      "cell_type": "code",
+      "upstream": {
+        "bytes": 450,
+        "sha256": "63d378a0f4ca15b2b46e69e8198b731b703e4ca91b3a889951127846b42cdd5d"
+      },
+      "selected": {
+        "bytes": 450,
+        "sha256": "63d378a0f4ca15b2b46e69e8198b731b703e4ca91b3a889951127846b42cdd5d"
+      },
+      "source_equal": true,
+      "edits": []
+    },
+    {
+      "upstream_index": 15,
+      "selected_index": 17,
+      "cell_type": "markdown",
+      "upstream": {
+        "bytes": 181,
+        "sha256": "a18104ebab0211f1958cc1c5bd451b403ead004d03d6fe979728003bf15b506b"
+      },
+      "selected": {
+        "bytes": 181,
+        "sha256": "a18104ebab0211f1958cc1c5bd451b403ead004d03d6fe979728003bf15b506b"
+      },
+      "source_equal": true,
+      "edits": []
+    },
+    {
+      "upstream_index": 16,
+      "selected_index": 18,
+      "cell_type": "code",
+      "upstream": {
+        "bytes": 1065,
+        "sha256": "f07004157034433dca3cae84e0000980649f21c32a70f2c17c6cb4111f1f3f7f"
+      },
+      "selected": {
+        "bytes": 1628,
+        "sha256": "321207b5fe600f3000e57b11273bdb828a5d212189025a7f76210e9de9494bec"
+      },
+      "source_equal": false,
+      "edits": [
+        {
+          "old_range": [
+            27,
+            28
+          ],
+          "old_lines": [
+            "print('benchmark.solver:', bm.solver)"
+          ],
+          "new_lines": [
+            "\n",
+            "\n",
+            "assert TRUE_SUBMISSION == ARC3_TRUE_SUBMISSION\n",
+            "if not TRUE_SUBMISSION:\n",
+            "    bm.solver.max_runtime_s_per_game = 7200\n",
+            "    bm.solver.analyzer_timeout = 900.0\n",
+            "    bm.solver.max_actions_per_game = None\n",
+            "    bm.solver.save_request_logs = True\n",
+            "    bm.n_passes = 1\n",
+            "    bm.game_weights = None\n",
+            "    demo_excluded_games = []\n",
+            "    bm.solver.concurrency = 25 if USE_PRIORITY_SCHEDULING else 10\n",
+            "ARC3_MANIFEST.update(status=\"configured\", setup_seconds=time.time()-ARC3_RUN_START,\n",
+            "                     config={k: str(v) for k, v in setup_env.items()})\n",
+            "arc3_write_manifest()\n",
+            "print(\"Final benchmark.solver:\", bm.solver)\n"
+          ]
+        }
+      ]
+    },
+    {
+      "upstream_index": 17,
+      "selected_index": 19,
+      "cell_type": "markdown",
+      "upstream": {
+        "bytes": 86,
+        "sha256": "371ff5381197ce6d842189a0b3abebcd2cb9b2b7dedd8e587a634f95ebace0de"
+      },
+      "selected": {
+        "bytes": 86,
+        "sha256": "371ff5381197ce6d842189a0b3abebcd2cb9b2b7dedd8e587a634f95ebace0de"
+      },
+      "source_equal": true,
+      "edits": []
+    },
+    {
+      "upstream_index": 18,
+      "selected_index": 20,
+      "cell_type": "code",
+      "upstream": {
+        "bytes": 3407,
+        "sha256": "ba1a098185cfdde69293193cebdf108567a446667086c4cb771660a1696459ac"
+      },
+      "selected": {
+        "bytes": 3407,
+        "sha256": "ba1a098185cfdde69293193cebdf108567a446667086c4cb771660a1696459ac"
+      },
+      "source_equal": true,
+      "edits": []
+    },
+    {
+      "upstream_index": 19,
+      "selected_index": 21,
+      "cell_type": "markdown",
+      "upstream": {
+        "bytes": 399,
+        "sha256": "172484ce3fc09a0f036895497cac61fe0f119caecc2ee2b250a062dd538d2b88"
+      },
+      "selected": {
+        "bytes": 399,
+        "sha256": "172484ce3fc09a0f036895497cac61fe0f119caecc2ee2b250a062dd538d2b88"
+      },
+      "source_equal": true,
+      "edits": []
+    },
+    {
+      "upstream_index": 20,
+      "selected_index": 22,
+      "cell_type": "code",
+      "upstream": {
+        "bytes": 4220,
+        "sha256": "d390c0bc7cfb9d2e67fddd20e1be24b11930e886789916ce0cf467c492922266"
+      },
+      "selected": {
+        "bytes": 7577,
+        "sha256": "b904d9ace8f2f2ae343bab7d84518c26ca23f6cba147259dd31e6d766137cf2d"
+      },
+      "source_equal": false,
+      "edits": [
+        {
+          "old_range": [
+            75,
+            76
+          ],
+          "old_lines": [
+            "# Outside a real submission, stop ~10 min before the wall-clock budget for a graceful exit.\n"
+          ],
+          "new_lines": [
+            "\n",
+            "# Preserve the upstream competition deadline handling. The short budget\n",
+            "# applies only to ordinary Save & Run validation.\n"
+          ]
+        },
+        {
+          "old_range": [
+            78,
+            81
+          ],
+          "old_lines": [
+            "    budget = float(getattr(target, \"max_runtime_s\", 0.0) or 0.0)\n",
+            "    if budget > 0:\n",
+            "        soft_end = datetime.fromtimestamp(NOTEBOOK_START_EPOCH) + timedelta(seconds=budget - min(600.0, budget / 2))\n"
+          ],
+          "new_lines": [
+            "    if len(bm.games) != ARC3_MANIFEST[\"expected_demo_games\"]:\n",
+            "        raise RuntimeError(\"Public game count changed; review the validation set before running.\")\n",
+            "    demo_end_epoch = min(time.time()+7200, ARC3_RUN_START+9000-180)\n",
+            "    if demo_end_epoch <= time.time():\n",
+            "        raise RuntimeError(\"Setup exhausted the demo budget; no benchmark was run.\")\n",
+            "    soft_end = datetime.fromtimestamp(demo_end_epoch)\n",
+            "ARC3_MANIFEST.update(status=\"running\", game_count=len(bm.games),\n",
+            "                     benchmark_started_epoch=time.time())\n",
+            "arc3_write_manifest()\n"
+          ]
+        },
+        {
+          "old_range": [
+            83,
+            84
+          ],
+          "old_lines": [
+            "await bm.run(soft_end_time=soft_end, runtime_environment=target, minimal_diagnostics=TRUE_SUBMISSION)\n"
+          ],
+          "new_lines": [
+            "try:\n",
+            "    await bm.run(soft_end_time=soft_end, runtime_environment=target,\n",
+            "                 minimal_diagnostics=TRUE_SUBMISSION)\n",
+            "    rows = []\n",
+            "    for result in bm.game_runs:\n",
+            "        rows.append({\"game_id\": result.game_id, \"state\": result.state,\n",
+            "                     \"levels_completed\": result.levels_completed,\n",
+            "                     \"number_of_levels\": result.number_of_levels,\n",
+            "                     \"actions_per_level\": list(result.actions_per_level),\n",
+            "                     \"final_score\": result.final_score,\n",
+            "                     \"generated_tokens\": result.final_generated_tokens + sum(r.generated_tokens for r in result.history),\n",
+            "                     \"uncached_input_tokens\": result.final_uncached_input_tokens + sum(r.uncached_input_tokens for r in result.history),\n",
+            "                     \"first_action_seconds\": result.history[0].wallclock_seconds if result.history else None,\n",
+            "                     \"first_model_action_seconds\": next((r.wallclock_seconds for r in result.history if r.generated_tokens > 0), None),\n",
+            "                     \"wallclock_seconds\": result.final_wallclock_seconds})\n",
+            "    arc3_write_json(\"arc3_game_results.json\", rows)\n",
+            "    invalid = (len(rows) != len(bm.games) * bm.n_passes or\n",
+            "               any(r[\"state\"] in {\"crashed\", \"playing\", \"not_started\"} or\n",
+            "                   r[\"final_score\"] is None for r in rows))\n",
+            "    if not TRUE_SUBMISSION and not any(r[\"generated_tokens\"] > 0 for r in rows):\n",
+            "        invalid = True\n",
+            "    uncovered = [r[\"game_id\"] for r in rows\n",
+            "                 if r[\"generated_tokens\"] <= 0 or sum(r[\"actions_per_level\"]) <= 0]\n",
+            "    ARC3_MANIFEST.update(status=\"completed_with_game_errors\" if invalid else \"completed\",\n",
+            "                         game_count=len(bm.games), game_run_count=len(rows),\n",
+            "                         uncovered_games=uncovered, coverage_passed=not uncovered and not invalid,\n",
+            "                         levels_completed=sum(r[\"levels_completed\"] for r in rows),\n",
+            "                         score_scope=\"gateway_diagnostics_not_leaderboard\" if TRUE_SUBMISSION else \"public_demo_validation_only\",\n",
+            "                         our_score=None if TRUE_SUBMISSION or invalid or not rows else sum(r[\"final_score\"] for r in rows)/len(rows))\n",
+            "    # The upstream benchmark catches solver exceptions. Do not let failed\n",
+            "    # demo validation produce a selectable placeholder submission.\n",
+            "    if invalid and not TRUE_SUBMISSION:\n",
+            "        raise RuntimeError(\"Demo validation had incomplete/crashed games; no placeholder will be written.\")\n",
+            "    if uncovered and not TRUE_SUBMISSION:\n",
+            "        ARC3_MANIFEST[\"status\"] = \"insufficient_coverage\"\n",
+            "        raise RuntimeError(\"Demo validation did not reach every game; raw score retained, no placeholder will be written.\")\n",
+            "except BaseException as exc:\n",
+            "    if ARC3_MANIFEST.get(\"status\") != \"insufficient_coverage\":\n",
+            "        ARC3_MANIFEST[\"status\"] = \"failed\"\n",
+            "    ARC3_MANIFEST.update(error_type=type(exc).__name__, error=str(exc)[:2000])\n",
+            "    raise\n",
+            "finally:\n",
+            "    ARC3_MANIFEST[\"elapsed_seconds\"] = time.time() - ARC3_RUN_START\n",
+            "    arc3_write_manifest()\n",
+            "    if not TRUE_SUBMISSION:\n",
+            "        arc3_archive_outputs()\n"
+          ]
+        },
+        {
+          "old_range": [
+            91,
+            92
+          ],
+          "old_lines": [
+            "    ).to_parquet(WORKING_DIR / \"submission.parquet\", index=False)"
+          ],
+          "new_lines": [
+            "    ).to_parquet(WORKING_DIR / \"submission.parquet\", index=False)\n"
+          ]
+        }
+      ]
+    },
+    {
+      "upstream_index": 21,
+      "selected_index": 23,
+      "cell_type": "markdown",
+      "upstream": {
+        "bytes": 226,
+        "sha256": "21d7ace04df6fe0737e9ac88c2aa857f6b7c0fa8bd513310fc45d2d40fe4e4fe"
+      },
+      "selected": {
+        "bytes": 226,
+        "sha256": "21d7ace04df6fe0737e9ac88c2aa857f6b7c0fa8bd513310fc45d2d40fe4e4fe"
+      },
+      "source_equal": true,
+      "edits": []
+    },
+    {
+      "upstream_index": 22,
+      "selected_index": 24,
+      "cell_type": "code",
+      "upstream": {
+        "bytes": 529,
+        "sha256": "b417422de021be6ab02751c570276f7639c3b8d52a755701472bbd05c79361d0"
+      },
+      "selected": {
+        "bytes": 529,
+        "sha256": "b417422de021be6ab02751c570276f7639c3b8d52a755701472bbd05c79361d0"
+      },
+      "source_equal": true,
+      "edits": []
+    }
+  ],
+  "inserted_cells": [
+    0,
+    1,
+    25
+  ]
+}

@@ -1,0 +1,811 @@
+{
+  "competition": "ARC-AGI-3",
+  "file_edits": [
+    {
+      "path": "src/ARC3-Inference/inference/agent/tool_agent.py",
+      "from_stage": "inherited_patch",
+      "to_stage": "local_overlay",
+      "before": {
+        "bytes": 343911,
+        "sha256": "053556f4a2d19bbb0f04d3ecde14bad2d76abfe91e89254740b763136a5a8e82"
+      },
+      "after": {
+        "bytes": 345001,
+        "sha256": "c7eb4698f39fd9d78bda1ac024cee00f46ede8c4946049b820b545c7ff1ccde3"
+      },
+      "hunks": [
+        {
+          "operation": "insert",
+          "before_zero_based_half_open": [
+            2,
+            2
+          ],
+          "after_zero_based_half_open": [
+            2,
+            3
+          ],
+          "removed": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "added": {
+            "bytes": 86,
+            "sha256": "307da42d0a6d242aa68b472336ecad15c33f78ffcd7495b404096f43177ef21e"
+          },
+          "added_text": "from arc3_deadline import get_budget, DeadlineReached, require_work, request_timeouts\n",
+          "license_scope": "MIT-0 only for original expression in submitter contributions; copied or adapted third-party expression is not relicensed."
+        },
+        {
+          "operation": "replace",
+          "before_zero_based_half_open": [
+            2076,
+            2077
+          ],
+          "after_zero_based_half_open": [
+            2077,
+            2083
+          ],
+          "removed": {
+            "bytes": 55,
+            "sha256": "7c15cadfd934e7437095138572f29028c5cde1e6590e11346f5eb1dffae2822c"
+          },
+          "added": {
+            "bytes": 246,
+            "sha256": "94852dd18af97541e2501b2c1f8c8f6b30821ff80f47221b53d95496241bdc6c"
+          },
+          "added_text": "            try:\n                self._enqueue_and_wait(priority, snapshot)\n            except DeadlineReached:\n                # Restore the caller's lease; session.finally releases it once.\n                self._free -= 1\n                raise\n",
+          "license_scope": "MIT-0 only for original expression in submitter contributions; copied or adapted third-party expression is not relicensed."
+        },
+        {
+          "operation": "insert",
+          "before_zero_based_half_open": [
+            2080,
+            2080
+          ],
+          "after_zero_based_half_open": [
+            2086,
+            2087
+          ],
+          "removed": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "added": {
+            "bytes": 43,
+            "sha256": "791df0bcf01ec4b9e79aec21bb26cc3eb8d5e9a436a202b7fe8d808194e4e55b"
+          },
+          "added_text": "        require_work(\"priority admission\")\n",
+          "license_scope": "MIT-0 only for original expression in submitter contributions; copied or adapted third-party expression is not relicensed."
+        },
+        {
+          "operation": "replace",
+          "before_zero_based_half_open": [
+            2094,
+            2095
+          ],
+          "after_zero_based_half_open": [
+            2101,
+            2108
+          ],
+          "removed": {
+            "bytes": 34,
+            "sha256": "fdc1b0743f5e8eba6a30cbac64fd4bbaa0e1f6a034f6b30f82d48033e7b466c1"
+          },
+          "added": {
+            "bytes": 477,
+            "sha256": "11b02bef1ccb340b5ff7ac43f108c2116b55010ff1cf20aac80209c3eb8e4a96"
+          },
+          "added_text": "                remaining = None if get_budget() is None else get_budget().remaining_work()\n                if remaining is not None and remaining <= 0:\n                    self._waiting = [(p, t) for p, t in self._waiting if t != token]\n                    heapq.heapify(self._waiting)\n                    self._snapshots.pop(token, None)\n                    raise DeadlineReached(\"notebook work deadline in priority queue\")\n                self._cond.wait(timeout=remaining)\n",
+          "license_scope": "MIT-0 only for original expression in submitter contributions; copied or adapted third-party expression is not relicensed."
+        },
+        {
+          "operation": "insert",
+          "before_zero_based_half_open": [
+            2097,
+            2097
+          ],
+          "after_zero_based_half_open": [
+            2110,
+            2113
+          ],
+          "removed": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "added": {
+            "bytes": 180,
+            "sha256": "0348e4edc60d5ec8f1709ed399f2421b9cd4cd17399edb53e4e7b06d118b84fb"
+          },
+          "added_text": "        if get_budget() is not None and get_budget().remaining_work() <= 0:\n            self._free += 1\n            raise DeadlineReached(\"notebook deadline raced with admission\")\n",
+          "license_scope": "MIT-0 only for original expression in submitter contributions; copied or adapted third-party expression is not relicensed."
+        },
+        {
+          "operation": "insert",
+          "before_zero_based_half_open": [
+            2099,
+            2099
+          ],
+          "after_zero_based_half_open": [
+            2115,
+            2118
+          ],
+          "removed": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "added": {
+            "bytes": 131,
+            "sha256": "d4c396e5cfb6ac3a31192ef65ed116850e96a0b22b72ac9ea1cdbd971be675c0"
+          },
+          "added_text": "        if get_budget() is not None and get_budget().remaining_work() <= 0:\n            self._cond.notify_all()\n            return\n",
+          "license_scope": "MIT-0 only for original expression in submitter contributions; copied or adapted third-party expression is not relicensed."
+        },
+        {
+          "operation": "replace",
+          "before_zero_based_half_open": [
+            5272,
+            5273
+          ],
+          "after_zero_based_half_open": [
+            5291,
+            5292
+          ],
+          "removed": {
+            "bytes": 26,
+            "sha256": "075040349b05a747ac469ff539ff053a33e195b288cc7cbeef9c635426a0f5af"
+          },
+          "added": {
+            "bytes": 42,
+            "sha256": "b48c808910ffdfce1f3d61454bf822a37fa75985b6afc23f636dd783d48de885"
+          },
+          "added_text": "                timeout=request_timeouts(\n",
+          "license_scope": "MIT-0 only for original expression in submitter contributions; copied or adapted third-party expression is not relicensed."
+        }
+      ]
+    },
+    {
+      "path": "src/ARC3-Inference/inference/framework/solver.py",
+      "from_stage": "inherited_patch",
+      "to_stage": "local_overlay",
+      "before": {
+        "bytes": 81223,
+        "sha256": "42b4794f0447e071ba118194c64d009f7fa59df0b84f3d9c35da4dd215824c52"
+      },
+      "after": {
+        "bytes": 82498,
+        "sha256": "bc1edb1be970e6b2ba197d6bdb78997f63d48a0a0327ae5c266d3d49860d9fe7"
+      },
+      "hunks": [
+        {
+          "operation": "insert",
+          "before_zero_based_half_open": [
+            3,
+            3
+          ],
+          "after_zero_based_half_open": [
+            3,
+            4
+          ],
+          "removed": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "added": {
+            "bytes": 68,
+            "sha256": "e473eca1b5eb39226ef30be0dcb2063f56450c11159170b6eeb364c84998a4a7"
+          },
+          "added_text": "from arc3_deadline import get_budget, DeadlineReached, require_work\n",
+          "license_scope": "MIT-0 only for original expression in submitter contributions; copied or adapted third-party expression is not relicensed."
+        },
+        {
+          "operation": "insert",
+          "before_zero_based_half_open": [
+            521,
+            521
+          ],
+          "after_zero_based_half_open": [
+            522,
+            524
+          ],
+          "removed": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "added": {
+            "bytes": 100,
+            "sha256": "734157ef2f5874bb74f4fbfe490e2933a31e1dcf9ea0adb014b87e7e1890c9ad"
+          },
+          "added_text": "        if get_budget() is not None and get_budget().remaining_work() <= 0:\n            return True\n",
+          "license_scope": "MIT-0 only for original expression in submitter contributions; copied or adapted third-party expression is not relicensed."
+        },
+        {
+          "operation": "insert",
+          "before_zero_based_half_open": [
+            533,
+            533
+          ],
+          "after_zero_based_half_open": [
+            536,
+            539
+          ],
+          "removed": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "added": {
+            "bytes": 168,
+            "sha256": "8a70528e690c9ecb44dcd8bf8322320277237d852e1537a0152d19eb0e24dd65"
+          },
+          "added_text": "        if get_budget() is not None:\n            shared = get_budget().remaining_work()\n            remaining = shared if remaining is None else min(remaining, shared)\n",
+          "license_scope": "MIT-0 only for original expression in submitter contributions; copied or adapted third-party expression is not relicensed."
+        },
+        {
+          "operation": "insert",
+          "before_zero_based_half_open": [
+            637,
+            637
+          ],
+          "after_zero_based_half_open": [
+            643,
+            646
+          ],
+          "removed": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "added": {
+            "bytes": 87,
+            "sha256": "62bd3ba1f88d5a4faaaf6ffc8c517b4ce37f3d50403639d25dd355aa757529d6"
+          },
+          "added_text": "        if self.should_stop():\n            self._finish_if_needed()\n            return\n",
+          "license_scope": "MIT-0 only for original expression in submitter contributions; copied or adapted third-party expression is not relicensed."
+        },
+        {
+          "operation": "insert",
+          "before_zero_based_half_open": [
+            730,
+            730
+          ],
+          "after_zero_based_half_open": [
+            739,
+            743
+          ],
+          "removed": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "added": {
+            "bytes": 166,
+            "sha256": "a2825e4381ccb6e3e92cd64b939fb051ff4c58604e67dd36cd5ae35f6d434b8b"
+          },
+          "added_text": "        except DeadlineReached:\n            if run.state == \"playing\":\n                run.state = \"cancelled\"\n            run.solver_note = \"notebook work deadline\"\n",
+          "license_scope": "MIT-0 only for original expression in submitter contributions; copied or adapted third-party expression is not relicensed."
+        },
+        {
+          "operation": "replace",
+          "before_zero_based_half_open": [
+            748,
+            749
+          ],
+          "after_zero_based_half_open": [
+            761,
+            763
+          ],
+          "removed": {
+            "bytes": 68,
+            "sha256": "aecca77f5d77d855cc3e113ad0d394c6a4f519a87ae4df765f8bede9210072b3"
+          },
+          "added": {
+            "bytes": 185,
+            "sha256": "0b009bac8482d37db86a9823581a9765e67b781cd5c597c03593d484b6ee2e4e"
+          },
+          "added_text": "            deadline_reached = get_budget() is not None and get_budget().remaining_work() <= 0\n            if (self.stop_event.is_set() or deadline_reached) and run.state == \"playing\":\n",
+          "license_scope": "MIT-0 only for original expression in submitter contributions; copied or adapted third-party expression is not relicensed."
+        },
+        {
+          "operation": "insert",
+          "before_zero_based_half_open": [
+            1559,
+            1559
+          ],
+          "after_zero_based_half_open": [
+            1573,
+            1575
+          ],
+          "removed": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "added": {
+            "bytes": 121,
+            "sha256": "3091a2540e5dfd3ef3f0b2d4b5d9f37e47241333e03e7a33d1ef659412dae305"
+          },
+          "added_text": "        if get_budget() is not None:\n            timeout = min(timeout, max(0.0, get_budget().remaining_cleanup()-30.0))\n",
+          "license_scope": "MIT-0 only for original expression in submitter contributions; copied or adapted third-party expression is not relicensed."
+        },
+        {
+          "operation": "insert",
+          "before_zero_based_half_open": [
+            1792,
+            1792
+          ],
+          "after_zero_based_half_open": [
+            1808,
+            1810
+          ],
+          "removed": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "added": {
+            "bytes": 86,
+            "sha256": "79dc1dbe1cdc761fa187c970d5640f9883d4be93cff78d3feddeeb4c3ed82bfd"
+          },
+          "added_text": "        if get_budget() is not None:\n            return get_budget().remaining_work()\n",
+          "license_scope": "MIT-0 only for original expression in submitter contributions; copied or adapted third-party expression is not relicensed."
+        },
+        {
+          "operation": "insert",
+          "before_zero_based_half_open": [
+            1870,
+            1870
+          ],
+          "after_zero_based_half_open": [
+            1888,
+            1889
+          ],
+          "removed": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "added": {
+            "bytes": 40,
+            "sha256": "ee62ba0eb7afc71c83d777b8cb6d5de06235f3e1091d1f5f1974e8bdd965daf9"
+          },
+          "added_text": "            require_work(\"game worker\")\n",
+          "license_scope": "MIT-0 only for original expression in submitter contributions; copied or adapted third-party expression is not relicensed."
+        },
+        {
+          "operation": "insert",
+          "before_zero_based_half_open": [
+            1884,
+            1884
+          ],
+          "after_zero_based_half_open": [
+            1903,
+            1910
+          ],
+          "removed": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "added": {
+            "bytes": 322,
+            "sha256": "46e82f5e8bede112fc82986d897b5a113fda2f48ee3c7e1f8421ee14c4fe4fa5"
+          },
+          "added_text": "        except DeadlineReached:\n            run = game.game_run\n            if run is not None and run.final_score is None:\n                if run.state == \"playing\":\n                    run.state = \"cancelled\"\n                run.solver_note = \"notebook work deadline before admission\"\n                game.finish_game()\n",
+          "license_scope": "MIT-0 only for original expression in submitter contributions; copied or adapted third-party expression is not relicensed."
+        }
+      ]
+    },
+    {
+      "path": "src/tufa-arc-agi-framework/src/taaf/benchmark.py",
+      "from_stage": "inherited_patch",
+      "to_stage": "local_overlay",
+      "before": {
+        "bytes": 21393,
+        "sha256": "d273e8056f83a3d1557d31c50c9716ed205258c8b1ba31747367a743d51c9497"
+      },
+      "after": {
+        "bytes": 21726,
+        "sha256": "caf80adce394d307199717f0623d67e147b4c697c32209dfa0c7bf8a36708f10"
+      },
+      "hunks": [
+        {
+          "operation": "insert",
+          "before_zero_based_half_open": [
+            4,
+            4
+          ],
+          "after_zero_based_half_open": [
+            4,
+            5
+          ],
+          "removed": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "added": {
+            "bytes": 51,
+            "sha256": "d5075e457bab530f774418222c2d6194d5b7de5d8a44858ae919ff6aae2a1088"
+          },
+          "added_text": "from arc3_deadline import get_budget, require_work\n",
+          "license_scope": "MIT-0 only for original expression in submitter contributions; copied or adapted third-party expression is not relicensed."
+        },
+        {
+          "operation": "insert",
+          "before_zero_based_half_open": [
+            108,
+            108
+          ],
+          "after_zero_based_half_open": [
+            109,
+            110
+          ],
+          "removed": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "added": {
+            "bytes": 40,
+            "sha256": "9e9cf5e13c953185c9cf82e4aeaddab7e94724b04da29886136c15a5e3af449a"
+          },
+          "added_text": "        require_work(\"benchmark setup\")\n",
+          "license_scope": "MIT-0 only for original expression in submitter contributions; copied or adapted third-party expression is not relicensed."
+        },
+        {
+          "operation": "delete",
+          "before_zero_based_half_open": [
+            131,
+            133
+          ],
+          "after_zero_based_half_open": [
+            133,
+            133
+          ],
+          "removed": {
+            "bytes": 78,
+            "sha256": "3b12df96a9886ed1f8fedee4834bb83f4b781e83eac23c61eece0dba29e337d4"
+          },
+          "added": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "added_text": "",
+          "license_scope": "MIT-0 only for original expression in submitter contributions; copied or adapted third-party expression is not relicensed."
+        },
+        {
+          "operation": "insert",
+          "before_zero_based_half_open": [
+            148,
+            148
+          ],
+          "after_zero_based_half_open": [
+            148,
+            150
+          ],
+          "removed": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "added": {
+            "bytes": 86,
+            "sha256": "a5ea88d613f4912c3d05f5a14e78123df5464dcf40a8f392a64f9ad024a35314"
+          },
+          "added_text": "            played_solver.setup()\n            self.solver_label = played_solver.label\n",
+          "license_scope": "MIT-0 only for original expression in submitter contributions; copied or adapted third-party expression is not relicensed."
+        },
+        {
+          "operation": "insert",
+          "before_zero_based_half_open": [
+            150,
+            150
+          ],
+          "after_zero_based_half_open": [
+            152,
+            153
+          ],
+          "removed": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "added": {
+            "bytes": 47,
+            "sha256": "4e79dc2b6da7e926b3fe45f598309486752e6877f5c68a4e7694dd5f3af828fa"
+          },
+          "added_text": "                    require_work(\"game setup\")\n",
+          "license_scope": "MIT-0 only for original expression in submitter contributions; copied or adapted third-party expression is not relicensed."
+        },
+        {
+          "operation": "insert",
+          "before_zero_based_half_open": [
+            301,
+            301
+          ],
+          "after_zero_based_half_open": [
+            304,
+            309
+          ],
+          "removed": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "added": {
+            "bytes": 187,
+            "sha256": "4c5a6012db343b2219a476fd13d7deec660bed4a82bd94d151f6fb8d965edf00"
+          },
+          "added_text": "        if get_budget() is not None:\n            await asyncio.sleep(get_budget().remaining_work())\n            self._deadline_fired = True\n            target.cancel()\n            return\n",
+          "license_scope": "MIT-0 only for original expression in submitter contributions; copied or adapted third-party expression is not relicensed."
+        }
+      ]
+    },
+    {
+      "path": "src/ARC3-Inference/inference/agent/tool_agent.py",
+      "from_stage": "local_overlay",
+      "to_stage": "local_telemetry",
+      "before": {
+        "bytes": 345001,
+        "sha256": "c7eb4698f39fd9d78bda1ac024cee00f46ede8c4946049b820b545c7ff1ccde3"
+      },
+      "after": {
+        "bytes": 346636,
+        "sha256": "4ee68c6bd053e91b86635b5f9153d3f7a151988f339a59cdb5952d0ed1311e01"
+      },
+      "hunks": [
+        {
+          "operation": "insert",
+          "before_zero_based_half_open": [
+            1976,
+            1976
+          ],
+          "after_zero_based_half_open": [
+            1976,
+            2007
+          ],
+          "removed": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "added": {
+            "bytes": 1261,
+            "sha256": "7defcedfac78ac85fdc65d507f0ac0535eec03e277d645911d2890672cbf0764"
+          },
+          "added_text": "\n_ARC3_SCHEDULER_TRACE_LOCK = threading.Lock()\n_ARC3_SCHEDULER_TRACE_SEQ = 0\n_ARC3_TELEMETRY_ERROR = None\n\n\ndef _arc3_scheduler_trace(kind, **fields):\n    trace_path = os.environ.get(\"ARC3_SCHEDULER_TRACE\", \"\")\n    if not trace_path:\n        return\n    global _ARC3_SCHEDULER_TRACE_SEQ, _ARC3_TELEMETRY_ERROR\n    with _ARC3_SCHEDULER_TRACE_LOCK:\n        if _ARC3_TELEMETRY_ERROR is not None:\n            return\n        _ARC3_SCHEDULER_TRACE_SEQ += 1\n        before = time.monotonic()\n        epoch = time.time()\n        after = time.monotonic()\n        record = dict(seq=_ARC3_SCHEDULER_TRACE_SEQ, monotonic=before,\n                      epoch=epoch, monotonic_after=after,\n                      thread=threading.get_ident(), kind=kind, **fields)\n        try:\n            with open(trace_path, \"a\", encoding=\"utf-8\") as stream:\n                stream.write(json.dumps(record, sort_keys=True) + \"\\n\")\n        except OSError as exc:\n            # Do not interrupt a gate mutation or prevent its subsequent pump.\n            # The notebook exposes this in-memory failure in the final manifest.\n            _ARC3_TELEMETRY_ERROR = {\"type\": type(exc).__name__, \"message\": str(exc)[:500],\n                                   \"failed_seq\": _ARC3_SCHEDULER_TRACE_SEQ}\n\n\n",
+          "license_scope": "MIT-0 only for original expression in submitter contributions; copied or adapted third-party expression is not relicensed."
+        },
+        {
+          "operation": "insert",
+          "before_zero_based_half_open": [
+            2017,
+            2017
+          ],
+          "after_zero_based_half_open": [
+            2048,
+            2049
+          ],
+          "removed": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "added": {
+            "bytes": 106,
+            "sha256": "778318b80bb426c80b2b39367103d77bf92a918c0f8559d6e87b001a9be98638"
+          },
+          "added_text": "            _arc3_scheduler_trace('gate_clock', started=self._clock_start, deadline=self._clock_deadline)\n",
+          "license_scope": "MIT-0 only for original expression in submitter contributions; copied or adapted third-party expression is not relicensed."
+        },
+        {
+          "operation": "insert",
+          "before_zero_based_half_open": [
+            2066,
+            2066
+          ],
+          "after_zero_based_half_open": [
+            2098,
+            2099
+          ],
+          "removed": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "added": {
+            "bytes": 71,
+            "sha256": "ea147c991cecfb2efa39606dc38d699aeb629d5a79c18e40f70cbdda504de4d8"
+          },
+          "added_text": "            _arc3_scheduler_trace('release', reason='session_finally')\n",
+          "license_scope": "MIT-0 only for original expression in submitter contributions; copied or adapted third-party expression is not relicensed."
+        },
+        {
+          "operation": "insert",
+          "before_zero_based_half_open": [
+            2077,
+            2077
+          ],
+          "after_zero_based_half_open": [
+            2110,
+            2111
+          ],
+          "removed": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "added": {
+            "bytes": 64,
+            "sha256": "4bb9753213436f3783c82e1972cc3f7b3296c0b75c9b8f325de26dfe187fe9dc"
+          },
+          "added_text": "            _arc3_scheduler_trace('release', reason='handover')\n",
+          "license_scope": "MIT-0 only for original expression in submitter contributions; copied or adapted third-party expression is not relicensed."
+        },
+        {
+          "operation": "insert",
+          "before_zero_based_half_open": [
+            2096,
+            2096
+          ],
+          "after_zero_based_half_open": [
+            2130,
+            2131
+          ],
+          "removed": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "added": {
+            "bytes": 78,
+            "sha256": "86aef305de58710cfc6c333f4b6acad0616a9c06aabdda9edd52103478b933f6"
+          },
+          "added_text": "        _arc3_scheduler_trace('enqueue', token=token, priority=int(priority))\n",
+          "license_scope": "MIT-0 only for original expression in submitter contributions; copied or adapted third-party expression is not relicensed."
+        },
+        {
+          "operation": "insert",
+          "before_zero_based_half_open": [
+            2113,
+            2113
+          ],
+          "after_zero_based_half_open": [
+            2148,
+            2149
+          ],
+          "removed": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "added": {
+            "bytes": 55,
+            "sha256": "de3ba59340eee6ca8d3aa3992edc6e99c15ed7f791d2b3985a51b8d4662311e8"
+          },
+          "added_text": "        _arc3_scheduler_trace('acquired', token=token)\n",
+          "license_scope": "MIT-0 only for original expression in submitter contributions; copied or adapted third-party expression is not relicensed."
+        }
+      ]
+    },
+    {
+      "path": "src/ARC3-Inference/inference/framework/solver.py",
+      "from_stage": "local_overlay",
+      "to_stage": "local_telemetry",
+      "before": {
+        "bytes": 82498,
+        "sha256": "bc1edb1be970e6b2ba197d6bdb78997f63d48a0a0327ae5c266d3d49860d9fe7"
+      },
+      "after": {
+        "bytes": 83001,
+        "sha256": "d5a0b46b24a019802c372bd1205febb68fe784bb15358d27e37a4739d1cb0308"
+      },
+      "hunks": [
+        {
+          "operation": "insert",
+          "before_zero_based_half_open": [
+            48,
+            48
+          ],
+          "after_zero_based_half_open": [
+            48,
+            49
+          ],
+          "removed": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "added": {
+            "bytes": 27,
+            "sha256": "591e315c85c2ad9bb4685c6fd6c22996a0c7aa509a70665d4ce0211fce67a64b"
+          },
+          "added_text": "    _arc3_scheduler_trace,\n",
+          "license_scope": "MIT-0 only for original expression in submitter contributions; copied or adapted third-party expression is not relicensed."
+        },
+        {
+          "operation": "insert",
+          "before_zero_based_half_open": [
+            619,
+            619
+          ],
+          "after_zero_based_half_open": [
+            620,
+            622
+          ],
+          "removed": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "added": {
+            "bytes": 154,
+            "sha256": "67cfc02c482673d90d24927ed97de82cf47a8065a378a735226c3f1d607d79f1"
+          },
+          "added_text": "        _arc3_scheduler_trace(\"session_begin\", game_id=run.game_id,\n                              game_index=self.game_index, pass_index=self.pass_index)\n",
+          "license_scope": "MIT-0 only for original expression in submitter contributions; copied or adapted third-party expression is not relicensed."
+        },
+        {
+          "operation": "replace",
+          "before_zero_based_half_open": [
+            630,
+            631
+          ],
+          "after_zero_based_half_open": [
+            633,
+            639
+          ],
+          "removed": {
+            "bytes": 76,
+            "sha256": "fee7e4aa2666e6adea84e1a107719c9acf4c9ee71f1e99f60ca3f73e6207e07a"
+          },
+          "added": {
+            "bytes": 328,
+            "sha256": "498281864e6a78562f9a386221565523cb0d8de1a2e1b3e50fe584545f63b1f6"
+          },
+          "added_text": "            try:\n                gate.acquire(_PRIORITY_UNTRIMMED_BASE - self._queue_position())\n            except DeadlineReached as exc:\n                _arc3_scheduler_trace('session_end', game_id=run.game_id,\n                                      admission_failed=True, error_type=type(exc).__name__)\n                raise\n",
+          "license_scope": "MIT-0 only for original expression in submitter contributions; copied or adapted third-party expression is not relicensed."
+        },
+        {
+          "operation": "insert",
+          "before_zero_based_half_open": [
+            638,
+            638
+          ],
+          "after_zero_based_half_open": [
+            646,
+            647
+          ],
+          "removed": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "added": {
+            "bytes": 70,
+            "sha256": "cc1f8e3ca883ba7d54a3418c9cac88a4c19e661e70d5f6c84931ff15526ebf7d"
+          },
+          "added_text": "            _arc3_scheduler_trace(\"session_end\", game_id=run.game_id)\n",
+          "license_scope": "MIT-0 only for original expression in submitter contributions; copied or adapted third-party expression is not relicensed."
+        }
+      ]
+    },
+    {
+      "path": "src/ARC3-Inference/inference/agent/tool_agent.py",
+      "from_stage": "local_telemetry",
+      "to_stage": "local_deadline_propagation",
+      "before": {
+        "bytes": 346636,
+        "sha256": "4ee68c6bd053e91b86635b5f9153d3f7a151988f339a59cdb5952d0ed1311e01"
+      },
+      "after": {
+        "bytes": 346832,
+        "sha256": "d376294e112d04ee2b213e30aebf02472598be10adf53e323b97a7d28b0d28a9"
+      },
+      "hunks": [
+        {
+          "operation": "insert",
+          "before_zero_based_half_open": [
+            7161,
+            7161
+          ],
+          "after_zero_based_half_open": [
+            7161,
+            7165
+          ],
+          "removed": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "added": {
+            "bytes": 196,
+            "sha256": "a393612ceff407d064c0be888e27af521cbc1cb3a1f0dcac8b5ca9eddc09bb6d"
+          },
+          "added_text": "        except DeadlineReached:\n            # Preserve completed usage/history in finally and let the solver\n            # classify its existing deadline signal as cancellation.\n            raise\n",
+          "license_scope": "MIT-0 only for original expression in submitter contributions; copied or adapted third-party expression is not relicensed."
+        }
+      ]
+    }
+  ],
+  "distinct_files": 3,
+  "scope": "Mechanically observed replacement ranges and hashes, not proof of legal authorship or independent copyrightability."
+}

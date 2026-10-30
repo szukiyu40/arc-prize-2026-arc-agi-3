@@ -1,0 +1,66 @@
+import json, os, platform, subprocess, time
+from datetime import datetime, timezone
+from pathlib import Path
+def arc3_parse_run_mode(value):
+    normalized = (value or "").strip().lower()
+    if normalized not in {"", "0", "false", "1", "true"}:
+        raise RuntimeError("Unrecognized KAGGLE_IS_COMPETITION_RERUN value; refusing to guess run mode.")
+    return normalized in {"1", "true"}
+ARC3_TRUE_SUBMISSION = arc3_parse_run_mode(os.environ.get("KAGGLE_IS_COMPETITION_RERUN"))
+if not Path("/kaggle/input").is_dir():
+    raise RuntimeError("Run this notebook on Kaggle, not the local Mac.")
+ARC3_RUN_START = time.time()
+ARC3_WORK = Path("/kaggle/working")
+ARC3_WORK.mkdir(exist_ok=True)
+ARC3_RUN_ID = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ") + '-arc3-control-v3-7200s'
+ARC3_MANIFEST = {'experiment': 'arc3-control-v3', 'upstream_notebook': 'dfranzen/arc-agi-3-milestone-2-solution', 'upstream_notebook_sha256': '88a379f17c3a4ba8c98715fc23155346ccd6eb289bdafebadfc61a3178f9d9bd', 'upstream_code_commit': '10882e332d883af3e61616df8c8a17d03a328a75', 'competition': 'arc-prize-2026-arc-agi-3', 'purpose': 'submission_candidate_not_yet_validated', 'passes': 1, 'upstream_public_lb_reported': 27.89, 'our_score': None, 'model_and_harness_unchanged': True, 'inputs': {'competition_sources': ['arc-prize-2026-arc-agi-3'], 'model_sources': ['dfranzen/albucino-qwen3-8-flash-next-drafter/Transformers/default/1', 'dfranzen/intel-qwen3.8-flash-next-w4a16-autoround/Transformers/default/1'], 'dataset_sources': ['dfranzen/pennyroyal-v253', 'dfranzen/taaf-kaggle-source-bundle-copy']}, 'demo_benchmark_seconds': 7200, 'demo_session_seconds': 9000, 'expected_demo_games': 25, 'competition_budget_seconds': 32400, 'release_status': 'prepared_only_requires_exact_candidate_gpu_validation', 'leaderboard_score': None, 'experiment_arm': 'control', 'ablation': 'system_prompt_prefix_only', 'prompt_prefix': '', 'prompt_prefix_sha256': 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855', 'baseline_official_public_score': 25.22, 'baseline_demo_score': 49.18813471485718, 'minimum_official_public_score_exclusive': 30.0, 'platform_session_timeout_seconds': 32400}
+ARC3_MANIFEST.update(run_id=ARC3_RUN_ID, started_at=datetime.now(timezone.utc).isoformat(),
+                     status="preflight", python=platform.python_version())
+def arc3_write_json(name, payload):
+    try:
+        (ARC3_WORK / name).write_text(json.dumps(payload, indent=2))
+    except Exception as exc:
+        if not ARC3_TRUE_SUBMISSION:
+            raise
+        print("ARC3 diagnostic write failed:", name, type(exc).__name__)
+def arc3_write_manifest():
+    arc3_write_json("arc3_manifest.json", ARC3_MANIFEST)
+arc3_write_manifest()
+# The UI can omit the API's session timeout. Enforce the same cap in the notebook.
+import threading
+def arc3_hard_stop():
+    ARC3_MANIFEST.update(status="hard_timeout", elapsed_seconds=time.time()-ARC3_RUN_START)
+    try:
+        arc3_write_manifest()
+    finally:
+        os._exit(124)
+ARC3_WATCHDOG = None
+if not ARC3_TRUE_SUBMISSION:
+    ARC3_WATCHDOG = threading.Timer(9000, arc3_hard_stop)
+    ARC3_WATCHDOG.daemon = True
+    ARC3_WATCHDOG.start()
+gpu = subprocess.run(["nvidia-smi", "--query-gpu=name,memory.total,driver_version",
+                      "--format=csv,noheader,nounits"], capture_output=True, text=True)
+ARC3_MANIFEST["gpu"] = gpu.stdout.strip()
+ARC3_MANIFEST["host_meminfo"] = Path("/proc/meminfo").read_text().splitlines()[:3]
+arc3_write_manifest()
+if gpu.returncode or not gpu.stdout.strip():
+    raise RuntimeError("RTX PRO 6000 GPU was not attached; stop before model setup.")
+gpu_lines = [line.split(",") for line in gpu.stdout.strip().splitlines()]
+if len(gpu_lines) != 1 or float(gpu_lines[0][1]) < 90000:
+    raise RuntimeError("This baseline needs one approximately 96 GB GPU.")
+print(json.dumps(ARC3_MANIFEST, indent=2))
+
+ARC3_MANIFEST["runtime_mode"] = "competition_rerun" if ARC3_TRUE_SUBMISSION else "demo_validation"
+arc3_write_manifest()
+
+def arc3_archive_outputs():
+    if ARC3_TRUE_SUBMISSION:
+        return
+    import zipfile
+    archive_path = ARC3_WORK / (ARC3_RUN_ID + ".zip")
+    with zipfile.ZipFile(archive_path, "w", zipfile.ZIP_DEFLATED) as bundle:
+        for p in sorted(ARC3_WORK.rglob("*")):
+            if p.is_file() and not p.is_symlink() and p.suffix != ".zip":
+                bundle.write(p, p.relative_to(ARC3_WORK))
+    print("Archive for Google Drive:", archive_path, archive_path.stat().st_size)

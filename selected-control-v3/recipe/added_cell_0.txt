@@ -1,0 +1,3 @@
+# ARC3 control v3 — unmeasured candidate
+
+Single-variable prompt screening against the validated Franzen v2 baseline. Same model, serving code, scheduler and input references. One pass on all 25 public games; 120-minute benchmark and internal 150-minute demo watchdog. Real competition mode retains full-budget handling. This candidate requires its own successful GPU validation before submission.
