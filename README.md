@@ -65,9 +65,20 @@ rewrite historical evidence, source, scores, eligibility or missing runtime
 facts. `RELEASES.json` records exact package manifests. `SOURCE_MANIFEST.json`
 covers all distributed repository files except itself.
 
-A companion Kaggle source-distribution notebook is being prepared for this
-competition. Its URL and verified publication information will be recorded once
-the save completes. Publication here alone does not establish Kaggle-side sharing.
+The [public Kaggle source-distribution notebook](https://www.kaggle.com/code/szukiyu/arc-agi-3-source-release-2026)
+completed as version 1 on 2026-10-30. Its three source cells and two output files
+were retrieved without credentials; all 249 files in its source archive match
+the original GitHub commit `d6de8555c7a5f108f4f0106542390ff525688918`
+(tag `source-release-20261030`). Later GitHub commits add only publication records
+and cross-links; the two package directories remain unchanged.
+
+The distribution notebook only writes source files. It uses no competition data,
+models or GPU, and is explicitly dedicated and linked to ARC-AGI-3. Kaggle rejected
+the earlier attempt to attach competition data to a public notebook; no such
+data are needed or included in this release. Inclusion in the competition's Code
+tab and the organizer's interpretation of the sharing requirement have not been
+independently confirmed. [PUBLICATION.json](PUBLICATION.json) records the dated
+public readbacks and archive identity.
 
 [ARC Prize 2026 rules](https://arcprize.org/competitions/2026) require source and
 method publication before receiving official private evaluation scores. This

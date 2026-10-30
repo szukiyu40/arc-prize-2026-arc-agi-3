@@ -5,9 +5,13 @@
       "bytes": 807,
       "sha256": "581f903071110d35e302edc4e0f73689c4ef95aeae7e99db6b7900687c392a6d"
     },
+    "PUBLICATION.json": {
+      "bytes": 1947,
+      "sha256": "81ea2bee953b25133b6d3c01093bcf891249f801f423c322e772ee496badb506"
+    },
     "README.md": {
-      "bytes": 4329,
-      "sha256": "2c87895c2da469a805c4219017f98c13dce28e22178205625ac488de436b9024"
+      "bytes": 5106,
+      "sha256": "da55560bfd1782ae204a7b90a072e176a88ed28a274c5403864328f65b9d97ef"
     },
     "RELEASES.json": {
       "bytes": 46672,

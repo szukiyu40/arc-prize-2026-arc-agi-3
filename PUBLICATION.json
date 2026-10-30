@@ -1,0 +1,46 @@
+{
+  "competition": "ARC-AGI-3",
+  "recorded_utc": "2026-10-30T14:40:09.192513+00:00",
+  "github": {
+    "url": "https://github.com/szukiyu40/arc-prize-2026-arc-agi-3",
+    "commit": "d6de8555c7a5f108f4f0106542390ff525688918",
+    "file_count": 249,
+    "public": true,
+    "observed_utc": "2026-10-30T14:27:56.184842+00:00",
+    "all249file_hashes_match": true,
+    "all_three_source_verifications_passed": true
+  },
+  "kaggle": {
+    "competition": "ARC-AGI-3",
+    "observed_utc": "2026-10-30T14:36:30.939656+00:00",
+    "url": "https://www.kaggle.com/code/szukiyu/arc-agi-3-source-release-2026",
+    "kernel_id": 141782397,
+    "version": 1,
+    "anonymous_no_credentials_or_cookies": true,
+    "public_native_source_all3cells_equal": true,
+    "public_output_listing_accessible": true,
+    "public_output_files": {
+      "arc3_public_sources_d6de8555.zip": {
+        "bytes": 8910557,
+        "sha256": "220ba19135feab5a99c83da292a400544e1b7e965de03ea3be35c2f538f9d00e"
+      },
+      "source_release_manifest.json": {
+        "bytes": 806,
+        "sha256": "d8f6bbf18b0a22cc3f471c972f1e58086fa32e4ac50b1d492c3c6525e3086ed1"
+      }
+    },
+    "all249source_files_match": true,
+    "competition_data_sources": [],
+    "association_scope": "Dedicated ARC-AGI-3 source notebook title/content/link. Direct protected competition-input attachment was rejected. Code-tab inclusion and organizer interpretation not independently verified."
+  },
+  "source_archive_commit": "d6de8555c7a5f108f4f0106542390ff525688918",
+  "source_archive_tag": "source-release-20261030",
+  "later_github_changes": "Publication records and cross-links only; both pinned package directories unchanged.",
+  "limitations": {
+    "official_score_reproduced": false,
+    "model_prize_eligibility_confirmed": false,
+    "private_rank_one_achieved": false,
+    "competition_code_tab_inclusion_verified": false,
+    "no_model_weights_or_competition_data_distributed": true
+  }
+}
