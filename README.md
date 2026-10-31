@@ -17,7 +17,7 @@ eligibility is claimed. This disclosure does not change the selected entries.
 All three use Daniel Franzen's Milestone 2 solution over TAAF/Duck, Qwen3.8-Flash-Next
 AutoRound main weights, an MTP drafter and the pinned Pennyroyal serving stack.
 Detailed parameters, provenance, external input references and reproducibility
-limits are in each package's `METHOD.md` and `runtime_inputs.json`.
+limits are in each package's `METHOD.md` and referenced `runtime_inputs.json`.
 
 ## Source-only verification
 
@@ -109,6 +109,16 @@ or token savings. METHOD.md records regressions and evidence limits.
 
 The table and V1 Kaggle-publication record above retain their original dated
 statuses. The original source-release-20261030 tag and both old package trees
-are unchanged. This new additive source revision supersedes the earlier statement
-that later commits add only publication records. A corresponding CPU-only Kaggle
-source-distribution update will carry the same source archive after readback.
+are unchanged. The initial release's later-record-only statement applies
+through commit c3d0f9d1...; this revision adds the new source package.
+
+The existing [Kaggle source-distribution notebook](https://www.kaggle.com/code/szukiyu/arc-agi-3-source-release-2026)
+completed as V2 on 2026-10-31. Its three source cells and both output files were
+retrieved without credentials; all 265 archive files match source commit
+c8b547863923c8cd4c34fe1af20041a1210de146 (tag source-release-20261101).
+The 9,972,670-byte source ZIP has SHA-256
+40ed96dbdc52ae9925bcd120efa9f743f34fdc09f7c99fb92f05bdf7d57b2a39.
+This later record commit changes only README.md, PUBLICATION.json and
+SOURCE_MANIFEST.json; all 259 package files remain identical to that archive.
+The distribution uses no inputs, model, GPU or internet and creates no official
+submission. It does not establish Code-tab inclusion or prize eligibility.

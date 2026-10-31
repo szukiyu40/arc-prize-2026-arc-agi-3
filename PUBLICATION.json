@@ -44,11 +44,84 @@
     "no_model_weights_or_competition_data_distributed": true
   },
   "snapshot_source_update": {
-    "prepared_utc": "2026-10-31T23:11:05.156896+00:00",
+    "competition": "ARC-AGI-3",
+    "recorded_utc": "2026-10-31T23:17:52.996364+00:00",
     "package": "official-snapshot-1101",
+    "source_commit": "c8b547863923c8cd4c34fe1af20041a1210de146",
+    "immutable_source_tag": "source-release-20261101",
+    "github_readback": {
+      "competition": "ARC-AGI-3",
+      "observed_utc": "2026-10-31T23:12:52.265474+00:00",
+      "repository": "https://github.com/szukiyu40/arc-prize-2026-arc-agi-3",
+      "commit": "c8b547863923c8cd4c34fe1af20041a1210de146",
+      "public": true,
+      "no_credentials_or_cookies": true,
+      "archive": {
+        "bytes": 2885947,
+        "sha256": "90315879842d420130a4ad60ab4c155d36319cb41ca0b6a604749be0cb8df96b"
+      },
+      "files": 265,
+      "all_file_bytes_and_sha256_match": true,
+      "all_four_source_verifications_passed": true,
+      "both_old_package_trees_unchanged": true,
+      "official_score_or_prize_eligibility_proven": false
+    },
+    "kaggle_readback": {
+      "competition": "ARC-AGI-3",
+      "observed_utc": "2026-10-31T23:16:34.368362+00:00",
+      "url": "https://www.kaggle.com/code/szukiyu/arc-agi-3-source-release-2026",
+      "kernel_id": 141782397,
+      "version": 2,
+      "anonymous_no_credentials_or_cookies": true,
+      "tls_certificate_verified": true,
+      "source_response_before": {
+        "bytes": 1068042,
+        "sha256": "da86aac236d46f5120f1c882d6bc3bbcf28e2d320f74f3edad6a4b06a4efe1e7"
+      },
+      "source_response_after": {
+        "bytes": 1068042,
+        "sha256": "2ec1edad1eb417a8ab8adadf8eea20375694ec43f749f62bdc12012048d8760f"
+      },
+      "public_native_source_all3cells_equal": true,
+      "public_output_listing_accessible": true,
+      "all_output_pages_visited": 1,
+      "pages": [
+        {
+          "response": {
+            "bytes": 10056,
+            "sha256": "de7e12d2f6e89360332f55478149bd82bd57111d6d32ab4b29d6a5e38b2d78a9"
+          },
+          "files": [
+            "arc3_public_sources_c8b54786.zip",
+            "source_release_manifest.json"
+          ],
+          "has_next_page": false,
+          "signed_download_urls_not_persisted": true
+        }
+      ],
+      "public_output_files": {
+        "arc3_public_sources_c8b54786.zip": {
+          "bytes": 9972670,
+          "sha256": "40ed96dbdc52ae9925bcd120efa9f743f34fdc09f7c99fb92f05bdf7d57b2a39"
+        },
+        "source_release_manifest.json": {
+          "bytes": 932,
+          "sha256": "6722bff869372a57a4543f6dec59b707e848f74f0577ca1a13f2c75e5f58c37a"
+        }
+      },
+      "all265_source_files_match": true,
+      "source_commit": "c8b547863923c8cd4c34fe1af20041a1210de146",
+      "competition_data_sources": [],
+      "gpu": false,
+      "internet": false,
+      "association_scope": "Explicit ARC-AGI-3 source notebook title/content/link; no protected data inputs. Code-tab inclusion and organizer interpretation not independently verified.",
+      "new_official_submission_or_selection_write": false
+    },
+    "all259_package_files_preserved": true,
+    "record_commit_scope": "README/PUBLICATION/SOURCE_MANIFEST only",
     "official_submission": 57852450,
     "script_version": 364369411,
-    "stage": "Prepared source revision; public commit and distribution readback recorded separately",
-    "old_tag_and_package_trees_unchanged": true
+    "official_result_not_established_by_source_publication": true,
+    "no_new_official_submit_or_selection_write": true
   }
 }
