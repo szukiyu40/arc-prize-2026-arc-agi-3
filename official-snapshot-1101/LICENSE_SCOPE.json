@@ -1,0 +1,24 @@
+{
+  "competition": "ARC-AGI-3",
+  "licensor": "Yu Suzuki, solely for rights held",
+  "original_documents_and_verifier": {
+    "license": "LICENSES/MIT-0.txt",
+    "scope": "Original expression only; quoted inherited material, license text, hashes and facts are not claimed as exclusively owned."
+  },
+  "mixed_source_files": {
+    "effective_source/src/ARC3-Inference/inference/agent/tool_agent.py": {
+      "inherited_scopes": "../official-v4/LICENSE_SCOPE.json",
+      "added_hunk": "snapshot_change.json",
+      "mit0_scope": "Original guard expression only to the extent rights are held by the submitter; surrounding mixed-source expression retains its prior terms."
+    },
+    "notebook/arc3-official-snapshot-1101.ipynb": {
+      "inherited_scopes": "../official-v4/LICENSE_SCOPE.json",
+      "added_scope": "Original submitted identity/receipt/introductory text and guarded overlay expression only where owned; inherited/embedded expression excluded."
+    },
+    "snapshot_change.patch": {
+      "scope": "The added original guard expression only where owned; inherited context remains under prior scopes."
+    }
+  },
+  "full_upstream_notices": "../official-v4/THIRD_PARTY_NOTICES.md",
+  "source_scope_does_not_establish_eligibility": true
+}

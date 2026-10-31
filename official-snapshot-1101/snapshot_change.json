@@ -1,0 +1,20 @@
+{
+  "competition": "ARC-AGI-3",
+  "path": "src/ARC3-Inference/inference/agent/tool_agent.py",
+  "before": {
+    "bytes": 346832,
+    "sha256": "d376294e112d04ee2b213e30aebf02472598be10adf53e323b97a7d28b0d28a9"
+  },
+  "after": {
+    "bytes": 346943,
+    "sha256": "94d0b3669bfbc3e25a55df6a568d64a96008c4c8099116d836227926cd5ae58f"
+  },
+  "anchor": "    def _record_retained_functions(self, sandbox_result, payload) -> None:\n        if not _persistent_functions():\n            return\n",
+  "inserted_text": "        if isinstance(sandbox_result, dict) and \"keepable_functions\" not in sandbox_result:\n            return\n",
+  "insertion_zero_based_line": 4671,
+  "added_line_range_zero_based_half_open": [
+    4671,
+    4673
+  ],
+  "mit0_scope": "Original guard expression only to the extent rights are held by the submitter; surrounding mixed-source expression retains its prior terms."
+}

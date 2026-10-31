@@ -42,5 +42,13 @@
     "private_rank_one_achieved": false,
     "competition_code_tab_inclusion_verified": false,
     "no_model_weights_or_competition_data_distributed": true
+  },
+  "snapshot_source_update": {
+    "prepared_utc": "2026-10-31T23:11:05.156896+00:00",
+    "package": "official-snapshot-1101",
+    "official_submission": 57852450,
+    "script_version": 364369411,
+    "stage": "Prepared source revision; public commit and distribution readback recorded separately",
+    "old_tag_and_package_trees_unchanged": true
   }
 }

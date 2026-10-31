@@ -1,0 +1,15 @@
+ARC-AGI-3 retained-snapshot repair — license scope index
+
+Copyright 2026 Yu Suzuki, solely for rights held in original submitter expression.
+MIT-0 in LICENSES/MIT-0.txt applies only within the scopes in LICENSE_SCOPE.json.
+This includes original documentation/verifier expression and the original guard
+contribution where rights are held. It is not a blanket license over the agent,
+notebook, patch context or embedded inherited code.
+
+All inherited TAAF declared MIT, Franzen Apache-2.0 and other notices/scopes remain
+in ../official-v4/LICENSE, ../official-v4/LICENSE_SCOPE.json,
+../official-v4/CONTRIBUTIONS.md and ../official-v4/THIRD_PARTY_NOTICES.md, with full
+license texts in ../official-v4/LICENSES/. The added notebook cell wraps a
+source-only guard; unchanged/inherited notebook expression retains prior terms.
+No model, dataset, vendor binary or third-party rights are granted by this file.
+Source reconstruction does not establish legal authorship or prize eligibility.

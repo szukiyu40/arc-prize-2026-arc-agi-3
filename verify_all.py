@@ -38,6 +38,11 @@ def main():
         if result.returncode != 0:
             raise RuntimeError(f"{name}/{script} failed: {result.stderr}")
         results[f"{name}/{script}"] = json.loads(result.stdout)
+    result = subprocess.run([sys.executable, "-B", str(root/"official-snapshot-1101/verify_snapshot_source.py")],
+                            cwd=root/"official-snapshot-1101", capture_output=True, text=True, timeout=30)
+    if result.returncode != 0:
+        raise RuntimeError("official-snapshot-1101 failed: " + result.stderr)
+    results["official-snapshot-1101/verify_snapshot_source.py"] = json.loads(result.stdout)
     print(json.dumps({"competition":"ARC-AGI-3", "all_release_files_verified":len(actual)+1,
                       "results":results,"official_scores_reproduced":False},indent=2))
 

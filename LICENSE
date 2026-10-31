@@ -13,3 +13,6 @@ Read selected-control-v3/LICENSE, selected-control-v3/LICENSE_SCOPE.json,
 official-v4/LICENSE and official-v4/LICENSE_SCOPE.json for their separate scopes.
 Original upstream notices remain included. No rights in third-party models,
 weights, datasets or binaries are granted here.
+
+The additive retained-snapshot revision is scoped by official-snapshot-1101/LICENSE
+and official-snapshot-1101/LICENSE_SCOPE.json; all prior scopes remain intact.

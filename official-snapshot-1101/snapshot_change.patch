@@ -1,0 +1,11 @@
+--- a/src/ARC3-Inference/inference/agent/tool_agent.py
++++ b/src/ARC3-Inference/inference/agent/tool_agent.py
+@@ -4668,6 +4668,8 @@
+ 
+     def _record_retained_functions(self, sandbox_result, payload) -> None:
+         if not _persistent_functions():
++            return
++        if isinstance(sandbox_result, dict) and "keepable_functions" not in sandbox_result:
+             return
+         try:
+             previous = self._kept_functions

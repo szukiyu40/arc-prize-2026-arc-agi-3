@@ -1,19 +1,20 @@
 # ARC Prize 2026 — ARC-AGI-3 source releases
 
-Source and method disclosure for Yu Suzuki's ARC-AGI-3 entries. The two source
+Source and method disclosure for Yu Suzuki's ARC-AGI-3 entries. The three source
 snapshots are separate, pinned packages; their notebook and effective source
 identities must not be interchanged.
 
-| Package | Official entry | Recorded status at 2026-10-30 14:12 UTC |
+| Package | Official entry | Dated status (original rows: 2026-10-30 14:12 UTC) |
 | --- | --- | --- |
 | [Control v3](selected-control-v3/README.md) | `szukiyu/arc3-control-v3`, V1, script 356741836, submission 57034274 | Official public **28.64**; selected for final evaluation |
 | [V4](official-v4/README.md) | `szukiyu/arc3-official-v4-v2-1030`, V1, script 363854386, submission 57805295 | Official evaluation running; official score unknown |
+| [Snapshot repair](official-snapshot-1101/README.md) | 57852450 / script 364369411 | Added 2026-10-31: official score pending; not final-selected |
 
 V4's public-demo mean of 50.067892 on 25 games is a separate measurement, not an
 official leaderboard score. No private score, first-place result or prize
 eligibility is claimed. This disclosure does not change the selected entries.
 
-Both use Daniel Franzen's Milestone 2 solution over TAAF/Duck, Qwen3.8-Flash-Next
+All three use Daniel Franzen's Milestone 2 solution over TAAF/Duck, Qwen3.8-Flash-Next
 AutoRound main weights, an MTP drafter and the pinned Pennyroyal serving stack.
 Detailed parameters, provenance, external input references and reproducibility
 limits are in each package's `METHOD.md` and `runtime_inputs.json`.
@@ -84,3 +85,30 @@ public readbacks and archive identity.
 method publication before receiving official private evaluation scores. This
 repository supplies source disclosure; full award compliance remains subject
 to the competition's rules and review.
+
+
+## Submitted retained-snapshot repair — 2026-10-31
+
+[official-snapshot-1101](official-snapshot-1101/README.md) contains source for
+submission 57852450 / kernel 142012233 V1 / script 364369411. Official scoring is
+pending at its recorded status; it is not a final-selected entry. The existing
+28.64 Control v3 selection remains 1/2. No official improvement, private rank
+or prize eligibility is claimed.
+
+This is the prepared notebook with all 28 cell types/sources equal to the saved
+submission (whole JSON bytes differ), and the measured agent 94d0b366...
+with a two-line missing-snapshot guard on official-v4 agent d376294e... .
+Keep the complete repository: all other effective source and dated input/license
+records come from the unchanged included official-v4 package. The root verifier
+keeps all three prior checks and adds this revision's source-data check.
+
+Its fresh public 25-game comparison was 48.691844 to 51.478096, with 110 to 111
+levels and 6 to 8 games won. This single ordered comparison is separate from
+official scoring and establishes neither statistical/causal benefit nor speed
+or token savings. METHOD.md records regressions and evidence limits.
+
+The table and V1 Kaggle-publication record above retain their original dated
+statuses. The original source-release-20261030 tag and both old package trees
+are unchanged. This new additive source revision supersedes the earlier statement
+that later commits add only publication records. A corresponding CPU-only Kaggle
+source-distribution update will carry the same source archive after readback.

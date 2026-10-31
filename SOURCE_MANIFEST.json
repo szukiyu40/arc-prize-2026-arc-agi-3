@@ -2,20 +2,80 @@
   "competition": "ARC-AGI-3",
   "files": {
     "LICENSE": {
-      "bytes": 807,
-      "sha256": "581f903071110d35e302edc4e0f73689c4ef95aeae7e99db6b7900687c392a6d"
+      "bytes": 971,
+      "sha256": "dd0cc86183bbd95a6648971375ffc7c6754488bfb151ea9eff1fe0c7eefd34c4"
     },
     "PUBLICATION.json": {
-      "bytes": 1947,
-      "sha256": "81ea2bee953b25133b6d3c01093bcf891249f801f423c322e772ee496badb506"
+      "bytes": 2299,
+      "sha256": "648153a98c4b1acdea155efd92bcbf0bca0960b72b382616e792f2c82c590be2"
     },
     "README.md": {
-      "bytes": 5106,
-      "sha256": "da55560bfd1782ae204a7b90a072e176a88ed28a274c5403864328f65b9d97ef"
+      "bytes": 6844,
+      "sha256": "f146f1e9b8b31958b76d22d2be7c2eca33d28f3832679ce7402c73237ffaf740"
     },
     "RELEASES.json": {
-      "bytes": 46672,
-      "sha256": "04ef5d5846b59e0261261261bcca59a04a2a7c6b932986c830113df24cf51fdb"
+      "bytes": 49394,
+      "sha256": "280842917a8edb2be332abdf078f5d27b765bc280481f1062a25dd965f813541"
+    },
+    "official-snapshot-1101/CONTRIBUTIONS.md": {
+      "bytes": 941,
+      "sha256": "448b3233b4f06c798f603f21fa964a0b5c853aac21fc4bac9da65a85a67b9828"
+    },
+    "official-snapshot-1101/LICENSE": {
+      "bytes": 985,
+      "sha256": "db9531333ddd3ac00a22fe13671cb39ffb5b539c9ee2dc1ae7390f8ee13aa711"
+    },
+    "official-snapshot-1101/LICENSES/MIT-0.txt": {
+      "bytes": 904,
+      "sha256": "da406a3de75a3b38ea09126f6151cf6452ad7e5b9953887d60fc111bed58eb09"
+    },
+    "official-snapshot-1101/LICENSE_SCOPE.json": {
+      "bytes": 1249,
+      "sha256": "6aa33bfb56a2dcc8e9ee247136ad324e71600506e1a8b16f1974753f20553cb7"
+    },
+    "official-snapshot-1101/METHOD.md": {
+      "bytes": 4835,
+      "sha256": "3577150ad720d4c3bf0e68be5978957734df83fd8805d45a24649fd48d7396ba"
+    },
+    "official-snapshot-1101/README.md": {
+      "bytes": 1757,
+      "sha256": "13e28fb073f759ab13e52f3b83937bd992a879984bd33e6c6fb8611b3a9cc787"
+    },
+    "official-snapshot-1101/THIRD_PARTY_NOTICES.md": {
+      "bytes": 761,
+      "sha256": "2aed7d40cf1a1a3f6da00ec882bb6c916b89ada524091f43663211d99a74a51f"
+    },
+    "official-snapshot-1101/effective_source/src/ARC3-Inference/inference/agent/tool_agent.py": {
+      "bytes": 346943,
+      "sha256": "94d0b3669bfbc3e25a55df6a568d64a96008c4c8099116d836227926cd5ae58f"
+    },
+    "official-snapshot-1101/manifest.json": {
+      "bytes": 2072,
+      "sha256": "eaa5405bff689911c66a1a1fdf6ce935c3b0d65c45e8fd20a1828a300a7c8615"
+    },
+    "official-snapshot-1101/notebook/arc3-official-snapshot-1101.ipynb": {
+      "bytes": 664037,
+      "sha256": "003804b0606d2f029075541e574b8b054b2e33a466efea69d14b2555573f7efa"
+    },
+    "official-snapshot-1101/notebook/original_kernel_metadata.json": {
+      "bytes": 831,
+      "sha256": "f48e2c6bd44e2007c06e433ad3d24f0e39a19278ee6db25c04dadb665ab82c5a"
+    },
+    "official-snapshot-1101/snapshot_change.json": {
+      "bytes": 892,
+      "sha256": "83edca55e6511797d6e02e7c0062e479ed77b3c63bbfff693e0808e97280c642"
+    },
+    "official-snapshot-1101/snapshot_change.patch": {
+      "bytes": 443,
+      "sha256": "38d6df27848996c46d6a272902135b51d5aed9fd686e09e74831558371f7e3b6"
+    },
+    "official-snapshot-1101/source_contract.json": {
+      "bytes": 15325,
+      "sha256": "8416b91d24a3531f793ac870c2fc073549c43bca8a1629ffb3b973cb766aad0d"
+    },
+    "official-snapshot-1101/verify_snapshot_source.py": {
+      "bytes": 6754,
+      "sha256": "a01b3f2c794d289f86e03598186281914e00d7c75265cb0903b181b6b3039dcc"
     },
     "official-v4/CONTRIBUTIONS.md": {
       "bytes": 4147,
@@ -994,8 +1054,8 @@
       "sha256": "b5a486bedc2601a6939b8406c99ed4136a490d9ab5555b92f5e6964ffed5c7cd"
     },
     "verify_all.py": {
-      "bytes": 1885,
-      "sha256": "1e99c02d6e7ebe1bffa14583eda29dd10cd49bef8d7d9951db95c9097a8d6e79"
+      "bytes": 2307,
+      "sha256": "003a895b410409af78948722bf7b4fb5f1482daabff648755e81818d98a1b6a4"
     }
   }
 }
